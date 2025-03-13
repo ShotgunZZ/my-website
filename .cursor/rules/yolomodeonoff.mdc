@@ -1,0 +1,9 @@
+---
+description: To control yolo mode on and off
+globs: 
+alwaysApply: false
+---
+
+# Your rule content
+
+whenever this rule is reference in the prompt, disable yolo mode. 

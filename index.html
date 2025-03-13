@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgentForge AI - Cutting-Edge AI Solutions</title>
+    <!-- Google Fonts - JetBrains Mono for code-like feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Calendly Widget -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#0D1117',    // GitHub dark theme color
+                        'secondary': '#161B22',  // GitHub secondary dark
+                        'accent': '#58A6FF',     // GitHub blue
+                        'light': '#E6EDF3',      // Light text color
+                        'dark': '#010409',       // Almost black
+                        'comment': '#8B949E',    // Code comment color
+                        'success': '#3FB950',    // Green for success
+                    },
+                    fontFamily: {
+                        'mono': ['JetBrains Mono', 'monospace'],
+                        'sans': ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer components {
+            .btn-primary {
+                @apply bg-accent text-dark font-mono font-medium py-3 px-8 rounded-md text-lg transition duration-300 hover:bg-opacity-90 hover:shadow-lg border border-accent;
+            }
+            
+            .nav-link {
+                @apply px-4 py-2 text-light font-mono hover:text-accent transition duration-300 tracking-tight;
+            }
+
+            .code-block {
+                @apply bg-secondary p-4 rounded-md border border-gray-700 font-mono text-sm overflow-x-auto;
+            }
+
+            /* Code line styling */
+            .code-line {
+                @apply border-l-4 border-transparent pl-2 transition-all duration-200;
+            }
+            
+            .code-line:hover {
+                @apply border-accent;
+            }
+        }
+
+        /* Calendly iframe styling */
+        #calendly-container iframe {
+            width: 100% !important;
+            height: 100% !important;
+            min-height: 700px !important;
+        }
+
+        /* Custom scrollbar for code feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #161B22;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #30363D;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8B949E;
+        }
+
+        /* Terminal-like text animation */
+        .typing-effect {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 0.15em solid transparent; /* No visible cursor */
+            width: 0;
+            animation: typing 2.5s steps(40, end) forwards;
+        }
+        
+        /* Typing animation keyframes */
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+    </style>
+</head>
+<body class="font-mono antialiased bg-primary text-light">
+    <!-- Header/Navigation -->
+    <header class="sticky top-0 z-50 bg-dark bg-opacity-90 backdrop-blur-sm border-b border-gray-800">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="index.html" class="text-light font-bold text-2xl tracking-tighter">
+                    AgentForge<span class="text-accent">AI</span>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="nav-link">home</a>
+                    <a href="#services" class="nav-link">services</a>
+                    <a href="#social-media" class="nav-link">social media</a>
+                    <a href="#team" class="nav-link">team</a>
+                    <a href="#contact" class="nav-link">contact</a>
+                </div>
+                
+                <!-- Mobile Navigation Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-light hover:text-accent">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="md:hidden hidden mt-4 space-y-2">
+                <a href="#" class="block py-2 px-4 text-light hover:bg-secondary rounded">home</a>
+                <a href="#services" class="block py-2 px-4 text-light hover:bg-secondary rounded">services</a>
+                <a href="#social-media" class="block py-2 px-4 text-light hover:bg-secondary rounded">social media</a>
+                <a href="#team" class="block py-2 px-4 text-light hover:bg-secondary rounded">team</a>
+                <a href="#contact" class="block py-2 px-4 text-light hover:bg-secondary rounded">contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-primary min-h-screen flex items-center border-b border-gray-800">
+        <div class="container mx-auto px-6 py-24">
+            <div class="max-w-4xl">
+                <h1 class="text-4xl md:text-6xl font-bold text-light mb-6 leading-tight tracking-tight">
+                    <span class="typing-effect">EMPOWER BUSINESSES WITH <span class="text-accent">AI</span></span>
+                    <span class="block text-success mt-2">CUTTING EDGE SOLUTIONS</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-light opacity-80 mb-12 max-w-2xl">
+                    We help businesses harness the power of autonomous agents to automate workflows, analyze data, and drive innovation.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <div class="calendly-container relative">
+                        <button id="demo-button" class="btn-primary">
+                            $ book a demo
+                        </button>
+                        <!-- Overlay background -->
+                        <div id="calendly-overlay" class="hidden fixed inset-0 bg-dark bg-opacity-80 z-10"></div>
+                        <!-- Calendly container -->
+                        <div id="calendly-embed" class="hidden rounded-md overflow-hidden border border-gray-700 bg-secondary transition-all duration-300 fixed z-20 shadow-2xl" style="min-height: 700px; width: 90%; max-width: 1000px; top: 50px; left: 50%; transform: translateX(-50%); height: calc(100vh - 100px);">
+                            <!-- Close button -->
+                            <button id="close-calendly" class="absolute top-4 right-4 text-light hover:text-accent bg-dark bg-opacity-70 rounded-full p-2 z-30">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                            <div id="calendly-loading" class="absolute inset-0 flex items-center justify-center bg-secondary">
+                                <div class="text-accent text-xl">Loading calendar...</div>
+                            </div>
+                            <div id="calendly-container" class="w-full h-full" style="overflow: hidden; min-height: 700px;"></div>
+                        </div>
+                    </div>
+                    <a href="#services" class="inline-flex items-center justify-center px-8 py-3 text-lg font-medium text-accent border border-accent rounded-md hover:bg-accent hover:bg-opacity-10 transition duration-300">
+                        $ explore services
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-secondary border-b border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="text-comment text-sm mb-2">/* Our core offerings */</div>
+                <h2 class="text-3xl md:text-5xl font-bold mb-4 tracking-tight">OUR <span class="text-accent">SERVICES</span></h2>
+                <p class="text-xl max-w-3xl mx-auto opacity-80">
+                    AgentForge AI assists you in identifying and integrating cutting-edge AI solutions, guiding you seamlessly from inception to deployment and beyond.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-primary p-8 rounded-md border border-gray-700 transition duration-300 hover:shadow-xl hover:translate-y-[-5px]">
+                    <h3 class="text-2xl font-bold mb-6 tracking-tight text-success">WORKFLOW AUTOMATION</h3>
+                    <div class="space-y-3 text-light opacity-80">
+                        <p>No-Code Make.com Solutions</p>
+                        <p>Process Optimization</p>
+                        <p>API & Webhook Integration</p>
+                        <p>Intelligent Task Scheduling</p>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-primary p-8 rounded-md border border-gray-700 transition duration-300 hover:shadow-xl hover:translate-y-[-5px]">
+                    <h3 class="text-2xl font-bold mb-6 tracking-tight text-success">MARKETING SERVICE</h3>
+                    <div class="space-y-3 text-light opacity-80">
+                        <p>ProductHunt Launch Strategy</p>
+                        <p>SEO Optimization</p>
+                        <p>Social Media Marketing</p>
+                        <p>Growth Hacking</p>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-primary p-8 rounded-md border border-gray-700 transition duration-300 hover:shadow-xl hover:translate-y-[-5px]">
+                    <h3 class="text-2xl font-bold mb-6 tracking-tight text-success">CRM AI INTEGRATION</h3>
+                    <div class="space-y-3 text-light opacity-80">
+                        <p>Salesforce & HubSpot AI</p>
+                        <p>Customer Journey Automation</p>
+                        <p>AI Voice Agent Development</p>
+                        <p>Intelligent Analytics</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section id="social-media" class="py-20 bg-primary">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="text-comment text-sm mb-2">/* Watch our channel */</div>
+                <h2 class="text-3xl md:text-5xl font-bold mb-4 tracking-tight"><span class="text-success">SOCIAL</span> <span class="text-accent">MEDIA</span></h2>
+                <p class="text-xl max-w-3xl mx-auto opacity-80 mb-8">
+                    Check out our latest videos showcasing AI innovations and tutorials
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Video 1 -->
+                <div class="bg-secondary p-6 rounded-md border border-gray-700 transition duration-300 hover:shadow-xl">
+                    <a href="https://youtu.be/Rq0-dfz0NjA?si=ppiFMt_KCcWTae_Y" target="_blank" class="block">
+                        <div class="aspect-w-16 aspect-h-9 mb-6 rounded-md border border-gray-700 overflow-hidden">
+                            <img src="https://img.youtube.com/vi/Rq0-dfz0NjA/maxresdefault.jpg" alt="YouTube Video Thumbnail" class="w-full h-48 object-cover">
+                        </div>
+                        <div class="text-sm text-comment mb-2">// AI Solutions</div>
+                        <h3 class="text-xl font-bold mb-4 tracking-tight hover:text-accent transition duration-300">Advanced AI Integration Techniques</h3>
+                    </a>
+                </div>
+                
+                <!-- Video 2 -->
+                <div class="bg-secondary p-6 rounded-md border border-gray-700 transition duration-300 hover:shadow-xl">
+                    <a href="https://youtu.be/eJ9uctdHLyg?si=ytrJ9Wtuwma5JpKx" target="_blank" class="block">
+                        <div class="aspect-w-16 aspect-h-9 mb-6 rounded-md border border-gray-700 overflow-hidden">
+                            <img src="https://img.youtube.com/vi/eJ9uctdHLyg/maxresdefault.jpg" alt="YouTube Video Thumbnail" class="w-full h-48 object-cover">
+                        </div>
+                        <div class="text-sm text-comment mb-2">// Automation</div>
+                        <h3 class="text-xl font-bold mb-4 tracking-tight hover:text-accent transition duration-300">Workflow Automation Masterclass</h3>
+                    </a>
+                </div>
+                
+                <!-- Video 3 -->
+                <div class="bg-secondary p-6 rounded-md border border-gray-700 transition duration-300 hover:shadow-xl">
+                    <a href="https://youtu.be/EDE1C9T48sY?si=YCQZ6d5eTofWfyXU" target="_blank" class="block">
+                        <div class="aspect-w-16 aspect-h-9 mb-6 rounded-md border border-gray-700 overflow-hidden">
+                            <img src="https://img.youtube.com/vi/EDE1C9T48sY/maxresdefault.jpg" alt="YouTube Video Thumbnail" class="w-full h-48 object-cover">
+                        </div>
+                        <div class="text-sm text-comment mb-2">// AI Development</div>
+                        <h3 class="text-xl font-bold mb-4 tracking-tight hover:text-accent transition duration-300">Building Smart AI Agents from Scratch</h3>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 flex justify-center space-x-6">
+                <a href="https://www.youtube.com/@agentforgeai" target="_blank" class="btn-primary inline-block">YouTube</a>
+                <a href="https://www.linkedin.com/in/shaunzhangsg/" target="_blank" class="bg-[#0A66C2] text-white font-mono font-medium py-3 px-8 rounded-md text-lg transition duration-300 hover:bg-opacity-90 hover:shadow-lg border border-[#0A66C2] inline-block">LinkedIn</a>
+                <a href="https://www.xiaohongshu.com/user/profile/6134eb9e0000000002023b45" target="_blank" class="bg-[#FE2C55] text-white font-mono font-medium py-3 px-8 rounded-md text-lg transition duration-300 hover:bg-opacity-90 hover:shadow-lg border border-[#FE2C55] inline-block">Xiaohongshu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-20 bg-secondary border-b border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-8">
+                <div class="text-comment text-sm mb-2">/* Meet our experts */</div>
+                <h2 class="text-3xl md:text-5xl font-bold mb-4 tracking-tight">OUR <span class="text-accent">TEAM</span></h2>
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-12 items-center mt-12">
+                <!-- Profile Image -->
+                <div class="md:w-1/3">
+                    <div class="photo-container">
+                        <!-- Actual profile photo with vignette effect -->
+                        <img src="shaun_zhang_profile.jpg" alt="Shaun Zhang">
+                    </div>
+                </div>
+                
+                <!-- Profile Content -->
+                <div class="md:w-2/3">
+                    <h2 class="text-3xl font-bold tracking-tight mb-2">Shaun Zhang</h2>
+                    <p class="text-accent text-xl mb-6 tracking-tight">AI Solutions Architect & Automation Specialist</p>
+                    
+                    <div class="space-y-6">
+                        <p class="text-lg">
+                            Dynamic professional with extensive experience in AI product development, workflow automation, and program management. Specializes in developing AI-powered solutions, no-code automation systems, and CRM integrations to optimize business operations.
+                        </p>
+                        
+                        <div class="mt-6">
+                            <p class="text-lg font-bold mb-3">Notable AI Projects:</p>
+                            <p class="text-lg">
+                                AI Voice Agent with ElevenLabs & LLM integration<br>
+                                Interactive AI Storytelling Platform<br>
+                                Intelligent CRM Workflow Automation<br>
+                                Educational AI Agent Creation Content
+                            </p>
+                        </div>
+                        
+                        <p class="text-lg">
+                            Shaun is passionate about leveraging technical proficiency and strategic insights to support innovative AI product teams. His approach focuses on creating solutions that enhance human capabilities while streamlining complex workflows.
+                        </p>
+                        
+                        <div class="pt-6">
+                            <h3 class="text-xl font-bold mb-4 tracking-tight">Areas of Expertise</h3>
+                            <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                <li class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-success" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    AI Agent Development
+                                </li>
+                                <li class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-success" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    Large Language Models (LLMs)
+                                </li>
+                                <li class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-success" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    No-Code Automation (Make.com)
+                                </li>
+                                <li class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-success" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    API Integration & Webhooks
+                                </li>
+                                <li class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-success" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    CRM & Business Tools
+                                </li>
+                                <li class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-success" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    Project Management (PMP)
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="pt-6">
+                            <h3 class="text-xl font-bold mb-4 tracking-tight">Education</h3>
+                            <p class="text-lg">
+                                Yale School of Management<br>
+                                Master in Advanced Management
+                            </p>
+                            <p class="text-lg mt-4">
+                                National University of Singapore<br>
+                                MBA, Strategy & Organization
+                            </p>
+                        </div>
+                        
+                        <div class="pt-6">
+                            <a href="mailto:szhang1@me.com" class="btn-primary inline-flex items-center">
+                                Contact
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-dark py-12 border-t border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 tracking-tight">ADDRESS</h3>
+                    <p class="mb-4 opacity-80 font-mono">Detroit, Michigan, USA</p>
+                    
+                    <h3 class="text-xl font-bold mb-4 mt-8 tracking-tight">CONTACT</h3>
+                    <p class="mb-4 opacity-80 font-mono">szhang1@me.com</p>
+                </div>
+                
+                <!-- Newsletter -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 tracking-tight">SUBSCRIBE</h3>
+                    <p class="mb-4 opacity-80">Subscribe to our newsletter for the latest AI insights and updates.</p>
+                    <form id="newsletter-form" class="flex flex-col sm:flex-row gap-2">
+                        <input type="email" id="subscriber-email" name="email" placeholder="your.email@domain.com" class="px-4 py-3 rounded-md focus:outline-none bg-secondary text-light flex-1 border border-gray-700 font-mono" required />
+                        <button type="submit" class="bg-accent hover:bg-opacity-80 transition duration-300 px-6 py-3 rounded-md font-medium">submit</button>
+                    </form>
+                    <div id="subscription-message" class="mt-4 text-success hidden"></div>
+                </div>
+            </div>
+            
+            <!-- Social Media & Copyright -->
+            <div class="pt-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center">
+                <div class="text-sm opacity-70">
+                    <span class="text-comment">// Copyright</span> &copy; <span id="current-year">2023</span> AgentForge AI. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu Toggle -->
+    <script>
+        // Update copyright year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Create typing effect animation
+        const addTypingEffect = () => {
+            const elements = document.querySelectorAll('.typing-effect');
+            elements.forEach(element => {
+                // Remove and re-add class to restart animation if needed
+                // but without the cursor blinking effect
+                element.classList.remove('typing-effect');
+                void element.offsetWidth; // Trigger reflow
+                element.classList.add('typing-effect');
+            });
+        };
+
+        // Calendly popup functionality
+        document.getElementById('demo-button').addEventListener('click', function() {
+            const calendlyEmbed = document.getElementById('calendly-embed');
+            const calendlyOverlay = document.getElementById('calendly-overlay');
+            const button = this;
+            const originalText = button.textContent;
+            
+            // Toggle the visibility of the Calendly embed
+            if (calendlyEmbed.classList.contains('hidden')) {
+                // Show loading state
+                button.textContent = "$ loading calendar...";
+                button.disabled = true;
+                
+                // Don't need to position the embed anymore as we're using fixed positioning
+                // with auto margins for centering
+                
+                // Show overlay and calendar
+                calendlyOverlay.classList.remove('hidden');
+                calendlyEmbed.classList.remove('hidden');
+                
+                // Add click event to close when clicking overlay
+                calendlyOverlay.addEventListener('click', closeCalendly);
+                
+                // Add click event to close button
+                const closeButton = document.getElementById('close-calendly');
+                if (closeButton) {
+                    closeButton.addEventListener('click', function(e) {
+                        e.stopPropagation(); // Prevent event bubbling
+                        closeCalendly();
+                    });
+                }
+                
+                // Only initialize Calendly if it's not already loaded
+                if (!calendlyEmbed.dataset.loaded) {
+                    const loadingIndicator = document.getElementById('calendly-loading');
+                    
+                    // Clear any existing content to ensure proper initialization
+                    while (calendlyEmbed.firstChild) {
+                        if (calendlyEmbed.firstChild.id !== 'calendly-loading' && 
+                            calendlyEmbed.firstChild.id !== 'close-calendly' &&
+                            calendlyEmbed.firstChild.id !== 'calendly-container') {
+                            calendlyEmbed.removeChild(calendlyEmbed.firstChild);
+                        } else if (calendlyEmbed.firstChild.id !== 'calendly-container') {
+                            break;
+                        }
+                    }
+                    
+                    const calendlyContainer = document.getElementById('calendly-container');
+                    
+                    Calendly.initInlineWidget({
+                        url: 'https://calendly.com/shaunzhang-bootldr/30min',
+                        parentElement: calendlyContainer,
+                        prefill: {},
+                        utm: {}
+                    });
+                    
+                    // Hide loading indicator when Calendly is ready
+                    window.addEventListener('message', function calendlyEventHandler(e) {
+                        if (e.data.event && e.data.event.indexOf('calendly') === 0) {
+                            if (e.data.event === 'calendly.event_scheduled' || 
+                                e.data.event === 'calendly.date_and_time_selected' || 
+                                e.data.event === 'calendly.profile_page_viewed') {
+                                if (loadingIndicator) loadingIndicator.style.display = 'none';
+                            }
+                        }
+                    });
+                    
+                    // Create a timeout to ensure button is restored and loading indicator removed
+                    setTimeout(() => {
+                        button.textContent = "$ hide calendar";
+                        button.disabled = false;
+                        if (loadingIndicator) loadingIndicator.style.display = 'none';
+                    }, 2500);
+                    
+                    // Store event handler reference for cleanup
+                    calendlyEmbed.dataset.loaded = "true";
+                } else {
+                    // If already loaded, just hide the loading indicator
+                    const loadingIndicator = document.getElementById('calendly-loading');
+                    if (loadingIndicator) loadingIndicator.style.display = 'none';
+                    
+                    button.textContent = "$ hide calendar";
+                    button.disabled = false;
+                }
+            } else {
+                closeCalendly();
+            }
+            
+            // Function to close Calendly interface
+            function closeCalendly() {
+                calendlyEmbed.classList.add('hidden');
+                calendlyOverlay.classList.add('hidden');
+                button.textContent = "$ book a demo";
+                
+                // Remove event listener
+                calendlyOverlay.removeEventListener('click', closeCalendly);
+            }
+        });
+
+        // Newsletter subscription handling
+        document.getElementById('newsletter-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const emailInput = document.getElementById('subscriber-email');
+            const messageDiv = document.getElementById('subscription-message');
+            const email = emailInput.value.trim();
+            
+            // Basic email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                messageDiv.textContent = "Please enter a valid email address.";
+                messageDiv.className = "mt-4 text-accent";
+                messageDiv.classList.remove('hidden');
+                return;
+            }
+            
+            // Show loading state
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.textContent;
+            submitButton.disabled = true;
+            submitButton.textContent = "Submitting...";
+            
+            // Send to Google Sheet via Google Apps Script Web App
+            fetch('https://script.google.com/macros/s/AKfycby_1o9xZN4lcdAkMquPm65NbdySvsdo3Mc6OcB1fOBU1Yv8iVGKd5Vj0N1KZGbUNdbnOw/exec', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    'email': email,
+                    'timestamp': new Date().toISOString()
+                })
+            })
+            .then(response => {
+                // Store locally as backup
+                const subscribers = JSON.parse(localStorage.getItem('subscribers') || '[]');
+                subscribers.push({
+                    email: email,
+                    date: new Date().toISOString()
+                });
+                localStorage.setItem('subscribers', JSON.stringify(subscribers));
+                
+                // Show success message
+                messageDiv.textContent = "Thank you for subscribing! We'll keep you updated with exciting news about AI.";
+                messageDiv.className = "mt-4 text-success";
+                messageDiv.classList.remove('hidden');
+                
+                // Reset button and form
+                submitButton.disabled = false;
+                submitButton.textContent = originalButtonText;
+                emailInput.value = '';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                
+                // Show error message but still store locally
+                messageDiv.textContent = "Thank you for subscribing! We'll keep you updated with exciting news about AI.";
+                messageDiv.className = "mt-4 text-success";
+                messageDiv.classList.remove('hidden');
+                
+                // Store locally as backup
+                const subscribers = JSON.parse(localStorage.getItem('subscribers') || '[]');
+                subscribers.push({
+                    email: email,
+                    date: new Date().toISOString()
+                });
+                localStorage.setItem('subscribers', JSON.stringify(subscribers));
+                
+                // Reset button and form
+                submitButton.disabled = false;
+                submitButton.textContent = originalButtonText;
+                emailInput.value = '';
+            });
+        });
+
+        // Run on page load
+        document.addEventListener('DOMContentLoaded', addTypingEffect);
+    </script>
+</body>
+</html> 
