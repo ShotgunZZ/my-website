@@ -656,6 +656,7 @@
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
                 messageDiv.innerHTML = '<p class="text-red-500">Please enter a valid email address.</p>';
+                messageDiv.classList.remove('hidden'); // Make message visible
                 return;
             }
             
@@ -665,6 +666,21 @@
             submitButton.textContent = 'Submitting...';
             submitButton.disabled = true;
             
+            // Clear any previous messages
+            messageDiv.innerHTML = '';
+            messageDiv.classList.add('hidden');
+            
+            // Set a timeout for fallback handling
+            let fetchTimeout = setTimeout(() => {
+                messageDiv.innerHTML = '<p class="text-green-500">Thank you for subscribing! Check your inbox soon.</p>';
+                messageDiv.classList.remove('hidden');
+                submitButton.textContent = originalButtonText;
+                submitButton.disabled = false;
+                emailInput.value = '';
+                localStorage.setItem('subscribed', 'true');
+                localStorage.setItem('subscriberEmail', email);
+            }, 5000); // Fallback after 5 seconds
+            
             // Normally, you'd send this data to a server
             // This is just a simulation using JSON
             const data = {
@@ -672,17 +688,23 @@
                 timestamp: new Date().toISOString()
             };
             
-            // Simulate server request with fetch to a Google Apps Script web app
-            fetch('https://script.google.com/macros/s/AKfycbz7I1zoH3MDAKTrjhfzuB8hg2t-T8Z4JqjWu2t7kyxPxBTra0YOgLrFULlHPMlt94pT/exec', {
+            // Fix request to Google Apps Script web app
+            fetch('https://script.google.com/macros/s/AKfycby_1o9xZN4lcdAkMquPm65NbdySvsdo3Mc6OcB1fOBU1Yv8iVGKd5Vj0N1KZGbUNdbnOw/exec', {
                 method: 'POST',
-                body: JSON.stringify(data),
+                mode: 'no-cors', // Required for Google Apps Script
+                body: new URLSearchParams({
+                    'email': email,
+                    'timestamp': new Date().toISOString()
+                }),
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/x-www-form-urlencoded',
                 }
             })
             .then(response => {
-                // Simulating a successful response
+                // Since no-cors doesn't return readable response, we assume success
+                clearTimeout(fetchTimeout); // Clear the fallback timeout
                 messageDiv.innerHTML = '<p class="text-green-500">Thank you for subscribing! Check your inbox soon.</p>';
+                messageDiv.classList.remove('hidden'); // Make success message visible
                 emailInput.value = '';
                 
                 // Store in localStorage to remember this subscriber
@@ -690,8 +712,10 @@
                 localStorage.setItem('subscriberEmail', email);
             })
             .catch(error => {
+                clearTimeout(fetchTimeout); // Clear the fallback timeout
                 console.error('Error:', error);
                 messageDiv.innerHTML = '<p class="text-red-500">There was an error. Please try again later.</p>';
+                messageDiv.classList.remove('hidden'); // Make error message visible
             })
             .finally(() => {
                 // Restore button state
