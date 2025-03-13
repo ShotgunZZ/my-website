@@ -64,6 +64,63 @@
             height: 100% !important;
             min-height: 700px !important;
         }
+        
+        /* Video preview styling */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            overflow: hidden;
+            cursor: pointer; /* Add hand cursor on hover */
+        }
+        
+        .video-container img.thumbnail {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+        
+        /* Play button overlay styling */
+        .play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(13, 17, 23, 0.7); /* Semi-transparent dark background */
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .video-container:hover .play-overlay {
+            opacity: 1;
+        }
+        
+        .video-container:hover img.thumbnail {
+            transform: scale(1.05);
+        }
+        
+        .play-button {
+            color: #58A6FF; /* Accent color */
+            margin-bottom: 10px;
+            filter: drop-shadow(0 0 8px rgba(88, 166, 255, 0.5));
+        }
+        
+        .play-text {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+        }
 
         /* Custom scrollbar for code feel */
         ::-webkit-scrollbar {
@@ -247,8 +304,19 @@
                 <!-- Video 1 -->
                 <div class="bg-secondary p-6 rounded-md border border-gray-700 transition duration-300 hover:shadow-xl">
                     <a href="https://youtu.be/Rq0-dfz0NjA?si=ppiFMt_KCcWTae_Y" target="_blank" class="block">
-                        <div class="aspect-w-16 aspect-h-9 mb-6 rounded-md border border-gray-700 overflow-hidden">
-                            <img src="https://img.youtube.com/vi/Rq0-dfz0NjA/maxresdefault.jpg" alt="YouTube Video Thumbnail" class="w-full h-48 object-cover">
+                        <div class="mb-6 rounded-md border border-gray-700 overflow-hidden">
+                            <div class="video-container">
+                                <img src="https://img.youtube.com/vi/Rq0-dfz0NjA/maxresdefault.jpg" alt="YouTube Video Thumbnail" class="thumbnail">
+                                <!-- Play button overlay -->
+                                <div class="play-overlay">
+                                    <div class="play-button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-16 h-16">
+                                            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm14.024-.983a1.125 1.125 0 010 1.966l-5.603 3.113A1.125 1.125 0 019 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                    <div class="play-text">Click to play</div>
+                                </div>
+                            </div>
                         </div>
                         <div class="text-sm text-comment mb-2">// AI Solutions</div>
                         <h3 class="text-xl font-bold mb-4 tracking-tight hover:text-accent transition duration-300">Advanced AI Integration Techniques</h3>
@@ -258,8 +326,19 @@
                 <!-- Video 2 -->
                 <div class="bg-secondary p-6 rounded-md border border-gray-700 transition duration-300 hover:shadow-xl">
                     <a href="https://youtu.be/eJ9uctdHLyg?si=ytrJ9Wtuwma5JpKx" target="_blank" class="block">
-                        <div class="aspect-w-16 aspect-h-9 mb-6 rounded-md border border-gray-700 overflow-hidden">
-                            <img src="https://img.youtube.com/vi/eJ9uctdHLyg/maxresdefault.jpg" alt="YouTube Video Thumbnail" class="w-full h-48 object-cover">
+                        <div class="mb-6 rounded-md border border-gray-700 overflow-hidden">
+                            <div class="video-container">
+                                <img src="https://img.youtube.com/vi/eJ9uctdHLyg/maxresdefault.jpg" alt="YouTube Video Thumbnail" class="thumbnail">
+                                <!-- Play button overlay -->
+                                <div class="play-overlay">
+                                    <div class="play-button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-16 h-16">
+                                            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm14.024-.983a1.125 1.125 0 010 1.966l-5.603 3.113A1.125 1.125 0 019 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                    <div class="play-text">Click to play</div>
+                                </div>
+                            </div>
                         </div>
                         <div class="text-sm text-comment mb-2">// Automation</div>
                         <h3 class="text-xl font-bold mb-4 tracking-tight hover:text-accent transition duration-300">Workflow Automation Masterclass</h3>
@@ -269,8 +348,19 @@
                 <!-- Video 3 -->
                 <div class="bg-secondary p-6 rounded-md border border-gray-700 transition duration-300 hover:shadow-xl">
                     <a href="https://youtu.be/EDE1C9T48sY?si=YCQZ6d5eTofWfyXU" target="_blank" class="block">
-                        <div class="aspect-w-16 aspect-h-9 mb-6 rounded-md border border-gray-700 overflow-hidden">
-                            <img src="https://img.youtube.com/vi/EDE1C9T48sY/maxresdefault.jpg" alt="YouTube Video Thumbnail" class="w-full h-48 object-cover">
+                        <div class="mb-6 rounded-md border border-gray-700 overflow-hidden">
+                            <div class="video-container">
+                                <img src="https://img.youtube.com/vi/EDE1C9T48sY/maxresdefault.jpg" alt="YouTube Video Thumbnail" class="thumbnail">
+                                <!-- Play button overlay -->
+                                <div class="play-overlay">
+                                    <div class="play-button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-16 h-16">
+                                            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm14.024-.983a1.125 1.125 0 010 1.966l-5.603 3.113A1.125 1.125 0 019 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                    <div class="play-text">Click to play</div>
+                                </div>
+                            </div>
                         </div>
                         <div class="text-sm text-comment mb-2">// AI Development</div>
                         <h3 class="text-xl font-bold mb-4 tracking-tight hover:text-accent transition duration-300">Building Smart AI Agents from Scratch</h3>
@@ -565,73 +655,58 @@
             // Basic email validation
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
-                messageDiv.textContent = "Please enter a valid email address.";
-                messageDiv.className = "mt-4 text-accent";
-                messageDiv.classList.remove('hidden');
+                messageDiv.innerHTML = '<p class="text-red-500">Please enter a valid email address.</p>';
                 return;
             }
             
             // Show loading state
-            const submitButton = this.querySelector('button[type="submit"]');
+            const submitButton = document.querySelector('#newsletter-form button[type="submit"]');
             const originalButtonText = submitButton.textContent;
+            submitButton.textContent = 'Submitting...';
             submitButton.disabled = true;
-            submitButton.textContent = "Submitting...";
             
-            // Send to Google Sheet via Google Apps Script Web App
-            fetch('https://script.google.com/macros/s/AKfycby_1o9xZN4lcdAkMquPm65NbdySvsdo3Mc6OcB1fOBU1Yv8iVGKd5Vj0N1KZGbUNdbnOw/exec', {
+            // Normally, you'd send this data to a server
+            // This is just a simulation using JSON
+            const data = {
+                email: email,
+                timestamp: new Date().toISOString()
+            };
+            
+            // Simulate server request with fetch to a Google Apps Script web app
+            fetch('https://script.google.com/macros/s/AKfycbz7I1zoH3MDAKTrjhfzuB8hg2t-T8Z4JqjWu2t7kyxPxBTra0YOgLrFULlHPMlt94pT/exec', {
                 method: 'POST',
-                mode: 'no-cors',
+                body: JSON.stringify(data),
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: new URLSearchParams({
-                    'email': email,
-                    'timestamp': new Date().toISOString()
-                })
+                    'Content-Type': 'application/json'
+                }
             })
             .then(response => {
-                // Store locally as backup
-                const subscribers = JSON.parse(localStorage.getItem('subscribers') || '[]');
-                subscribers.push({
-                    email: email,
-                    date: new Date().toISOString()
-                });
-                localStorage.setItem('subscribers', JSON.stringify(subscribers));
-                
-                // Show success message
-                messageDiv.textContent = "Thank you for subscribing! We'll keep you updated with exciting news about AI.";
-                messageDiv.className = "mt-4 text-success";
-                messageDiv.classList.remove('hidden');
-                
-                // Reset button and form
-                submitButton.disabled = false;
-                submitButton.textContent = originalButtonText;
+                // Simulating a successful response
+                messageDiv.innerHTML = '<p class="text-green-500">Thank you for subscribing! Check your inbox soon.</p>';
                 emailInput.value = '';
+                
+                // Store in localStorage to remember this subscriber
+                localStorage.setItem('subscribed', 'true');
+                localStorage.setItem('subscriberEmail', email);
             })
             .catch(error => {
                 console.error('Error:', error);
-                
-                // Show error message but still store locally
-                messageDiv.textContent = "Thank you for subscribing! We'll keep you updated with exciting news about AI.";
-                messageDiv.className = "mt-4 text-success";
-                messageDiv.classList.remove('hidden');
-                
-                // Store locally as backup
-                const subscribers = JSON.parse(localStorage.getItem('subscribers') || '[]');
-                subscribers.push({
-                    email: email,
-                    date: new Date().toISOString()
-                });
-                localStorage.setItem('subscribers', JSON.stringify(subscribers));
-                
-                // Reset button and form
-                submitButton.disabled = false;
+                messageDiv.innerHTML = '<p class="text-red-500">There was an error. Please try again later.</p>';
+            })
+            .finally(() => {
+                // Restore button state
                 submitButton.textContent = originalButtonText;
-                emailInput.value = '';
+                submitButton.disabled = false;
             });
         });
+        
+        // Initialize the video previews on hover functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // The video preview hover functionality is now handled by CSS
+            // No JavaScript needed for the simple play button overlay
+        });
 
-        // Run on page load
+        // Document ready function
         document.addEventListener('DOMContentLoaded', addTypingEffect);
     </script>
 </body>
