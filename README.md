@@ -1,4 +1,4 @@
-# AgentForge AI - Cutting-Edge AI Solutions
+# Z.AI - Cutting-Edge AI Solutions
 
 A responsive website for an AI agent service company built with HTML and Tailwind CSS.
 

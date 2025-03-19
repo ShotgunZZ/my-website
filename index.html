@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgentForge AI - Cutting-Edge AI Solutions</title>
+    <title>Z.AI - Cutting-Edge AI Solutions</title>
     <!-- Google Fonts - JetBrains Mono for code-like feel -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -165,7 +165,7 @@
             <div class="flex justify-between items-center">
                 <!-- Logo -->
                 <a href="index.html" class="text-light font-bold text-2xl tracking-tighter">
-                    AgentForge<span class="text-accent">AI</span>
+                    Z<span class="text-accent">.AI</span>
                 </a>
                 
                 <!-- Desktop Navigation -->
@@ -207,12 +207,12 @@
                     <span class="block text-success mt-2">CUTTING EDGE SOLUTIONS</span>
                 </h1>
                 <p class="text-xl md:text-2xl text-light opacity-80 mb-12 max-w-2xl">
-                    We help businesses harness the power of autonomous agents to automate workflows, analyze data, and drive innovation.
+                    Z.AI assists you in identifying and integrating cutting-edge AI solutions, guiding you seamlessly from inception to deployment and beyond.
                 </p>
                 <div class="flex flex-wrap gap-4">
                     <div class="calendly-container relative">
                         <button id="demo-button" class="btn-primary">
-                            $ book a demo
+                            book a demo
                         </button>
                         <!-- Overlay background -->
                         <div id="calendly-overlay" class="hidden fixed inset-0 bg-dark bg-opacity-80 z-10"></div>
@@ -231,10 +231,7 @@
                         </div>
                     </div>
                     <a href="#services" class="inline-flex items-center justify-center px-8 py-3 text-lg font-medium text-accent border border-accent rounded-md hover:bg-accent hover:bg-opacity-10 transition duration-300">
-                        $ explore services
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                        </svg>
+                        explore services
                     </a>
                 </div>
             </div>
@@ -248,7 +245,7 @@
                 <div class="text-comment text-sm mb-2">/* Our core offerings */</div>
                 <h2 class="text-3xl md:text-5xl font-bold mb-4 tracking-tight">OUR <span class="text-accent">SERVICES</span></h2>
                 <p class="text-xl max-w-3xl mx-auto opacity-80">
-                    AgentForge AI assists you in identifying and integrating cutting-edge AI solutions, guiding you seamlessly from inception to deployment and beyond.
+                    Z.AI assists you in identifying and integrating cutting-edge AI solutions, guiding you seamlessly from inception to deployment and beyond.
                 </p>
             </div>
             
@@ -514,7 +511,7 @@
             <!-- Social Media & Copyright -->
             <div class="pt-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center">
                 <div class="text-sm opacity-70">
-                    <span class="text-comment">// Copyright</span> &copy; <span id="current-year">2023</span> AgentForge AI. All rights reserved.
+                    <span class="text-comment">// Copyright</span> &copy; <span id="current-year">2023</span> Z.AI. All rights reserved.
                 </div>
             </div>
         </div>
@@ -555,7 +552,7 @@
             // Toggle the visibility of the Calendly embed
             if (calendlyEmbed.classList.contains('hidden')) {
                 // Show loading state
-                button.textContent = "$ loading calendar...";
+                button.textContent = "loading calendar...";
                 button.disabled = true;
                 
                 // Don't need to position the embed anymore as we're using fixed positioning
@@ -614,7 +611,7 @@
                     
                     // Create a timeout to ensure button is restored and loading indicator removed
                     setTimeout(() => {
-                        button.textContent = "$ hide calendar";
+                        button.textContent = "hide calendar";
                         button.disabled = false;
                         if (loadingIndicator) loadingIndicator.style.display = 'none';
                     }, 2500);
@@ -626,7 +623,7 @@
                     const loadingIndicator = document.getElementById('calendly-loading');
                     if (loadingIndicator) loadingIndicator.style.display = 'none';
                     
-                    button.textContent = "$ hide calendar";
+                    button.textContent = "hide calendar";
                     button.disabled = false;
                 }
             } else {
@@ -637,7 +634,7 @@
             function closeCalendly() {
                 calendlyEmbed.classList.add('hidden');
                 calendlyOverlay.classList.add('hidden');
-                button.textContent = "$ book a demo";
+                button.textContent = "book a demo";
                 
                 // Remove event listener
                 calendlyOverlay.removeEventListener('click', closeCalendly);
