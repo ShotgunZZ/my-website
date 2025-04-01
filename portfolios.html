@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z.AI - Our Portfolios</title>
+    <!-- Google Fonts - JetBrains Mono for code-like feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Calendly Widget -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#0D1117',    // GitHub dark theme color
+                        'secondary': '#161B22',  // GitHub secondary dark
+                        'accent': '#58A6FF',     // GitHub blue
+                        'light': '#E6EDF3',      // Light text color
+                        'dark': '#010409',       // Almost black
+                        'comment': '#8B949E',    // Code comment color
+                        'success': '#3FB950',    // Green for success
+                    },
+                    fontFamily: {
+                        'mono': ['JetBrains Mono', 'monospace'],
+                        'sans': ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer components {
+            .btn-primary {
+                @apply bg-accent text-dark font-mono font-medium py-2 sm:py-3 px-4 sm:px-8 rounded-md text-base sm:text-lg transition duration-300 hover:bg-opacity-90 hover:shadow-lg border border-accent whitespace-nowrap;
+            }
+            
+            .nav-link {
+                @apply px-3 sm:px-4 py-2 text-light font-mono hover:text-accent transition duration-300 tracking-tight text-sm sm:text-base;
+            }
+
+            .code-block {
+                @apply bg-secondary p-4 rounded-md border border-gray-700 font-mono text-sm overflow-x-auto;
+            }
+
+            /* Code line styling */
+            .code-line {
+                @apply border-l-4 border-transparent pl-2 transition-all duration-200;
+            }
+            
+            .code-line:hover {
+                @apply border-accent;
+            }
+        }
+
+        /* Custom scrollbar for code feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #161B22;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #30363D;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8B949E;
+        }
+
+        /* Portfolio card hover effects */
+        .portfolio-card {
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .portfolio-card .overlay {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .portfolio-card:hover .overlay {
+            opacity: 1;
+        }
+
+        .portfolio-tag {
+            @apply bg-dark bg-opacity-70 text-xs text-accent py-1 px-3 rounded-full;
+        }
+    </style>
+</head>
+<body class="font-mono antialiased bg-primary text-light">
+    <!-- Header/Navigation -->
+    <header class="sticky top-0 z-50 bg-dark bg-opacity-90 backdrop-blur-sm border-b border-gray-800">
+        <nav class="container mx-auto px-4 sm:px-6 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="index.html" class="text-light font-bold text-xl sm:text-2xl tracking-tighter">
+                    Z<span class="text-accent">.AI</span>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="index.html#services" class="nav-link">Services</a>
+                    <a href="portfolios.html" class="nav-link text-accent">Portfolios</a>
+                    <a href="index.html#social-media" class="nav-link">Social Media</a>
+                    <a href="index.html#team" class="nav-link">Team</a>
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                </div>
+                
+                <!-- Mobile Navigation Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-light hover:text-accent">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="md:hidden hidden mt-4 space-y-2">
+                <a href="index.html" class="block py-2 px-4 text-light hover:bg-secondary rounded">Home</a>
+                <a href="index.html#services" class="block py-2 px-4 text-light hover:bg-secondary rounded">Services</a>
+                <a href="portfolios.html" class="block py-2 px-4 text-accent hover:bg-secondary rounded">Portfolios</a>
+                <a href="index.html#social-media" class="block py-2 px-4 text-light hover:bg-secondary rounded">Social Media</a>
+                <a href="index.html#team" class="block py-2 px-4 text-light hover:bg-secondary rounded">Team</a>
+                <a href="index.html#contact" class="block py-2 px-4 text-light hover:bg-secondary rounded">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Portfolio Hero Section -->
+    <section class="py-20 bg-dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="text-comment text-sm mb-2">/* Showcasing our work */</div>
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 text-light">OUR <span class="text-success">PORTFOLIOS</span></h1>
+                <p class="text-xl max-w-3xl mx-auto opacity-80">
+                    Check out some of our recent AI projects and solutions we've built for clients
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Categories Section -->
+    <section class="py-10 bg-primary border-b border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-center mb-10 gap-4">
+                <button class="category-btn bg-secondary text-accent px-5 py-2 rounded-md hover:bg-accent hover:text-dark transition-all border border-accent active" data-filter="all">All Projects</button>
+                <button class="category-btn bg-secondary text-light px-5 py-2 rounded-md hover:bg-accent hover:text-dark transition-all border border-gray-700" data-filter="crm">CRM</button>
+                <button class="category-btn bg-secondary text-light px-5 py-2 rounded-md hover:bg-accent hover:text-dark transition-all border border-gray-700" data-filter="voice">Voice Agents</button>
+                <button class="category-btn bg-secondary text-light px-5 py-2 rounded-md hover:bg-accent hover:text-dark transition-all border border-gray-700" data-filter="chatbot">Chatbots</button>
+                <button class="category-btn bg-secondary text-light px-5 py-2 rounded-md hover:bg-accent hover:text-dark transition-all border border-gray-700" data-filter="custom"><span class="text-success">Custom</span> Projects</button>
+                <button class="category-btn bg-secondary text-light px-5 py-2 rounded-md hover:bg-accent hover:text-dark transition-all border border-gray-700" data-filter="fun">Fun <span class="text-accent animate-pulse">✨</span> Projects</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid Section -->
+    <section class="py-16 bg-secondary">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Portfolio Item 1 -->
+                <div class="portfolio-card bg-primary rounded-lg overflow-hidden border border-gray-700 hover:shadow-xl hover:shadow-accent/10" data-category="crm voice">
+                    <div class="flex items-center justify-center h-64 overflow-hidden bg-[#151515] p-2">
+                        <img src="public/images/telegram-workflow.png" alt="Telegram Voice Assistant Workflow" class="max-h-full object-contain border border-gray-800 rounded">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="portfolio-tag">Voice AI</span>
+                            <span class="portfolio-tag">AI Automation</span>
+                            <span class="portfolio-tag">Real Estate</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-success">Telegram Voice → Calendar AI Assistant</h3>
+                        <p class="text-light opacity-80 text-sm mb-4">
+                            An intelligent voice-enabled system that allows real estate agents to manage their appointments through Telegram voice messages. The AI processes voice commands and automatically updates their calendar, streamlining their daily scheduling workflow.
+                        </p>
+                        
+                        <!-- Testimonial -->
+                        <div class="mt-6 bg-secondary rounded-lg p-4 border border-gray-700">
+                            <div class="flex items-start space-x-3">
+                                <div class="flex-shrink-0">
+                                    <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center">
+                                        <span class="text-dark font-bold">AL</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-sm italic text-light opacity-90 mb-2">
+                                        "As a real estate agent, my days are nonstop. I used to struggle keeping track of everything until Shaun built me a chatbot that lets me add stuff to my calendar just by sending voice messages. It's honestly been a game-changer."
+                                    </p>
+                                    <div class="flex items-center space-x-1">
+                                        <span class="text-success">★★★★★</span>
+                                        <span class="text-sm text-comment">- Anthony L.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Key Features -->
+                        <div class="mt-4 grid grid-cols-2 gap-2">
+                            <div class="flex items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span class="text-xs">Voice Commands</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span class="text-xs">Calendar Integration</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span class="text-xs">Telegram Bot</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span class="text-xs">Real-time Updates</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 2 -->
+                <div class="portfolio-card bg-primary rounded-lg overflow-hidden border border-gray-700 hover:shadow-xl hover:shadow-accent/10" data-category="crm">
+                    <div class="flex items-center justify-center h-64 overflow-hidden bg-[#151515] p-2">
+                        <img src="public/images/dm-workflow.png" alt="Automated DM Workflow" class="max-h-full object-contain border border-gray-800 rounded">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="portfolio-tag">Automation</span>
+                            <span class="portfolio-tag">Make.com</span>
+                            <span class="portfolio-tag">Lead Generation</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-success">Personalized DM Generator</h3>
+                        <p class="text-light opacity-80 text-sm mb-4">
+                            An intelligent automation system that generates personalized outreach messages for LinkedIn and Email campaigns. Built with Make.com, this workflow automates the entire process from data collection to personalized message delivery.
+                        </p>
+                        
+                        <!-- Resources Section -->
+                        <div class="mt-6 space-y-4">
+                            <!-- Blueprint Download -->
+                            <a href="https://zhangster14.gumroad.com/l/askbl" target="_blank" rel="noopener noreferrer" 
+                               class="block bg-accent/10 rounded-lg p-4 border border-accent hover:bg-accent/20 transition-all">
+                                <div class="flex items-center space-x-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                    </svg>
+                                    <div>
+                                        <h4 class="font-bold text-accent">Free Blueprint Download</h4>
+                                        <p class="text-xs text-light opacity-80">Get the complete Make.com workflow blueprint</p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!-- Video Tutorials -->
+                            <div class="grid grid-cols-2 gap-4">
+                                <a href="https://youtu.be/DDpbJXpBj1A" target="_blank" rel="noopener noreferrer" 
+                                   class="block bg-secondary rounded-lg p-3 border border-gray-700 hover:border-accent transition-all">
+                                    <div class="aspect-video bg-dark rounded-md mb-2">
+                                        <img src="public/images/video-thumb-1.jpg" alt="Tutorial 1" class="w-full h-full object-cover rounded-md">
+                                    </div>
+                                    <p class="text-xs text-light">Email Outreach Tutorial</p>
+                                </a>
+                                <a href="https://youtu.be/KDEuVsk-cek" target="_blank" rel="noopener noreferrer"
+                                   class="block bg-secondary rounded-lg p-3 border border-gray-700 hover:border-accent transition-all">
+                                    <div class="aspect-video bg-dark rounded-md mb-2">
+                                        <img src="public/images/video-thumb-2.jpg" alt="Tutorial 2" class="w-full h-full object-cover rounded-md">
+                                    </div>
+                                    <p class="text-xs text-light">LinkedIn DM Tutorial</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Key Features -->
+                        <div class="mt-6 grid grid-cols-2 gap-2">
+                            <div class="flex items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span class="text-xs">Personalized Messages</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span class="text-xs">Multi-platform Support</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span class="text-xs">Data Integration</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span class="text-xs">Automated Workflow</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 3 -->
+                <div class="portfolio-card bg-primary rounded-lg overflow-hidden border border-gray-700 hover:shadow-xl hover:shadow-accent/10" data-category="voice">
+                    <div class="flex items-center justify-center h-64 overflow-hidden bg-[#151515] p-2">
+                        <img src="public/images/appointment-setter-workflow.png" alt="Appointment Setter Workflow" class="max-h-full object-contain border border-gray-800 rounded">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="portfolio-tag">Voice AI</span>
+                            <span class="portfolio-tag">ChatGPT</span>
+                            <span class="portfolio-tag">Make.com</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-success">AI Appointment Setter</h3>
+                        <p class="text-light opacity-80 text-sm mb-4">
+                            An automated system that handles appointment scheduling through voice calls. This AI agent makes outbound calls, engages in natural conversation, collects scheduling information, and automatically handles calendar booking - all without human intervention.
+                        </p>
+                        
+                        <!-- Resources Section -->
+                        <div class="mt-6 space-y-4">
+                            <!-- Blueprint Download -->
+                            <a href="https://zhangster14.gumroad.com/l/lqopg" target="_blank" rel="noopener noreferrer" 
+                               class="block bg-accent/10 rounded-lg p-4 border border-accent hover:bg-accent/20 transition-all">
+                                <div class="flex items-center space-x-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                    </svg>
+                                    <div>
+                                        <h4 class="font-bold text-accent">Free Blueprint Download</h4>
+                                        <p class="text-xs text-light opacity-80">Get the complete Make.com workflow blueprint</p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!-- Video Tutorial -->
+                            <a href="https://youtu.be/EDE1C9T48sY?si=FeVwfsJi6LzrRpNC" target="_blank" rel="noopener noreferrer" 
+                               class="block bg-secondary rounded-lg p-3 border border-gray-700 hover:border-accent transition-all">
+                                <div class="aspect-video bg-dark rounded-md mb-2">
+                                    <img src="public/images/appointment-setter-thumbnail.jpg" alt="Appointment Setter Tutorial" class="w-full h-full object-cover rounded-md">
+                                </div>
+                                <p class="text-xs text-light">Learn how to build this appointment setter</p>
+                            </a>
+                        </div>
+
+                        <!-- Testimonial -->
+                        <div class="mt-6 bg-secondary rounded-lg p-4 border border-gray-700">
+                            <div class="flex items-start space-x-3">
+                                <div class="flex-shrink-0">
+                                    <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center">
+                                        <span class="text-dark font-bold">JS</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-sm italic text-light opacity-90 mb-2">
+                                        "I've coached two clients on implementing this system. Within just weeks, they were saving dozens of hours by automating their outbound scheduling calls. The ROI is incredible."
+                                    </p>
+                                    <div class="flex items-center space-x-1">
+                                        <span class="text-success">★★★★★</span>
+                                        <span class="text-sm text-comment">- Shaun Z.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Key Features -->
+                        <div class="mt-4 grid grid-cols-2 gap-2">
+                            <div class="flex items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span class="text-xs">Automated Calls</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span class="text-xs">Natural Conversations</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span class="text-xs">Calendar Integration</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span class="text-xs">No Human Intervention</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 4 -->
+                <div class="portfolio-card bg-primary rounded-lg overflow-hidden border border-gray-700" data-category="custom">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://placehold.co/600x400/0D1117/3FB950?text=Workflow+Automation" alt="Workflow Automation" class="w-full h-full object-cover">
+                        <div class="overlay absolute inset-0 bg-dark bg-opacity-70 flex items-center justify-center">
+                            <a href="#" class="btn-primary text-sm">View Project</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="portfolio-tag">Make.com</span>
+                            <span class="portfolio-tag">Automation</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-success">E-commerce Order Processing System</h3>
+                        <p class="text-light opacity-80 text-sm">
+                            A complete no-code automation solution that streamlines order processing, inventory management, and customer communications.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 5 -->
+                <div class="portfolio-card bg-primary rounded-lg overflow-hidden border border-gray-700" data-category="fun">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://placehold.co/600x400/0D1117/58A6FF?text=CRM+Integration" alt="CRM Integration" class="w-full h-full object-cover">
+                        <div class="overlay absolute inset-0 bg-dark bg-opacity-70 flex items-center justify-center">
+                            <a href="#" class="btn-primary text-sm">View Project</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="portfolio-tag">CRM</span>
+                            <span class="portfolio-tag">AI Integration</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-success">AI-Powered CRM Enhancement</h3>
+                        <p class="text-light opacity-80 text-sm">
+                            Integration of AI capabilities into an existing CRM system to provide predictive analytics and customer insights for a financial services firm.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 6 -->
+                <div class="portfolio-card bg-primary rounded-lg overflow-hidden border border-gray-700 hover:shadow-xl hover:shadow-accent/10" data-category="chatbot">
+                    <div class="flex items-center justify-center h-64 overflow-hidden bg-[#151515] p-2">
+                        <img src="public/images/chatbot-blueprint.png" alt="Nutrition Business Chatbot Blueprint" class="max-h-full object-contain border border-gray-800 rounded">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="portfolio-tag">Voiceflow</span>
+                            <span class="portfolio-tag">Make.com</span>
+                            <span class="portfolio-tag">AI Chatbot</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-success">Nutrition Business Customer Reception Bot</h3>
+                        <p class="text-light opacity-80 text-sm mb-4">
+                            A comprehensive AI chatbot built with Voiceflow and Make.com that serves as a virtual receptionist for nutrition businesses. It answers common customer questions, provides information about services, and helps visitors book retreats and wellness activities - all available 24/7 without human intervention.
+                        </p>
+                        
+                        <!-- Resources Section -->
+                        <div class="mt-6 space-y-4">
+                            <!-- Blueprint Download -->
+                            <a href="https://zhangster14.gumroad.com/l/gfnbbc" target="_blank" rel="noopener noreferrer" 
+                               class="block bg-accent/10 rounded-lg p-4 border border-accent hover:bg-accent/20 transition-all">
+                                <div class="flex items-center space-x-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                    </svg>
+                                    <div>
+                                        <h4 class="font-bold text-accent">Free Blueprint Download</h4>
+                                        <p class="text-xs text-light opacity-80">Get both Voiceflow and Make.com workflow blueprints</p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!-- Video Tutorial -->
+                            <a href="https://youtu.be/eJ9uctdHLyg?si=Run2x3BEjv_ykc9Z" target="_blank" rel="noopener noreferrer" 
+                               class="block bg-secondary rounded-lg p-3 border border-gray-700 hover:border-accent transition-all">
+                                <div class="aspect-video bg-dark rounded-md mb-2">
+                                    <img src="public/images/nutrition-chatbot-video-thumb.jpg" alt="Nutrition Chatbot Tutorial" class="w-full h-full object-cover rounded-md">
+                                </div>
+                                <p class="text-xs text-light">Learn how to build this nutrition business chatbot</p>
+                            </a>
+                        </div>
+
+                        <!-- Implementation Benefits -->
+                        <div class="mt-6 bg-secondary rounded-lg p-4 border border-gray-700">
+                            <div class="flex items-start space-x-3">
+                                <div class="flex-shrink-0">
+                                    <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center">
+                                        <span class="text-dark font-bold">ML</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-sm italic text-light opacity-90 mb-2">
+                                        "Shaun helped us incorporate this chatbot during our website development process. It works beautifully, answering all kinds of questions about our nutrition services. The best part is how it handles scheduling for our sessions and retreats with integrated payment links. It's like having a receptionist who never sleeps."
+                                    </p>
+                                    <div class="flex items-center space-x-1">
+                                        <span class="text-success">★★★★★</span>
+                                        <span class="text-sm text-comment">- Mark L., Nutrition Wellness Coach</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Key Features -->
+                        <div class="mt-4 grid grid-cols-2 gap-2">
+                            <div class="flex items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span class="text-xs">FAQ Knowledge Base</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span class="text-xs">Retreat Scheduling</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span class="text-xs">Activity Booking</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span class="text-xs">No-code Implementation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="text-center mt-12">
+                <button class="btn-primary">Load More Projects</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="py-20 bg-dark">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">HAVE A PROJECT IN MIND?</h2>
+                <p class="text-xl mb-8 opacity-80">
+                    Whether you have a specific idea or just want to explore possibilities, we're here to help bring your AI vision to life.
+                </p>
+                <button onclick="document.getElementById('demo-button').click();" class="btn-primary text-lg">
+                    Let's Talk About Your Project
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-dark py-12 border-t border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 tracking-tight">ADDRESS</h3>
+                    <p class="mb-4 opacity-80 font-mono">Detroit, Michigan, USA</p>
+                    
+                    <h3 class="text-xl font-bold mb-4 mt-8 tracking-tight">CONTACT</h3>
+                    <p class="mb-4 opacity-80 font-mono">szhang1@me.com</p>
+                </div>
+                
+                <!-- Newsletter -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 tracking-tight">SUBSCRIBE</h3>
+                    <p class="mb-4 opacity-80">Subscribe to our newsletter for the latest AI insights and updates.</p>
+                    <form id="newsletter-form" class="flex flex-col sm:flex-row gap-2">
+                        <input type="email" id="subscriber-email" name="email" placeholder="your.email@domain.com" class="px-4 py-2 sm:py-3 rounded-md focus:outline-none bg-secondary text-light flex-1 border border-gray-700 font-mono text-sm sm:text-base" required />
+                        <button type="submit" class="bg-accent hover:bg-opacity-80 transition duration-300 px-4 sm:px-6 py-2 sm:py-3 rounded-md font-medium w-full sm:w-auto">Submit</button>
+                    </form>
+                    <div id="subscription-message" class="mt-4 text-success hidden"></div>
+                </div>
+            </div>
+            
+            <!-- Social Media & Copyright -->
+            <div class="pt-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center">
+                <div class="text-sm opacity-70">
+                    <span class="text-comment">// Copyright</span> &copy; <span id="current-year">2023</span> Z.AI. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Update copyright year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Category filter functionality
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-card');
+        
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                categoryButtons.forEach(btn => {
+                    btn.classList.remove('active', 'text-accent', 'border-accent');
+                    btn.classList.add('text-light', 'border-gray-700');
+                });
+                
+                // Add active class to clicked button
+                button.classList.add('active', 'text-accent', 'border-accent');
+                button.classList.remove('text-light', 'border-gray-700');
+                
+                // Get the filter value
+                const filterValue = button.getAttribute('data-filter');
+                
+                // Filter the portfolio items
+                portfolioItems.forEach(item => {
+                    if (filterValue === 'all') {
+                        item.style.display = 'block';
+                    } else {
+                        const categories = item.getAttribute('data-category').split(' ');
+                        if (categories.includes(filterValue)) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+        
+        // Initialize the first button as active (already done in HTML)
+        categoryButtons[0].classList.add('text-accent', 'border-accent');
+        categoryButtons[0].classList.remove('text-light', 'border-gray-700');
+    </script>
+</body>
+</html>
