@@ -102,6 +102,23 @@
     </style>
 </head>
 <body class="font-mono antialiased bg-primary text-light">
+    <!-- Hidden button for Calendly (used by other buttons) -->
+    <button id="demo-button" class="hidden">Book a Demo</button>
+    
+    <!-- Calendly container -->
+    <div id="calendly-overlay" class="hidden fixed inset-0 bg-dark bg-opacity-80 z-10"></div>
+    <div id="calendly-embed" class="hidden rounded-md overflow-hidden border border-gray-700 bg-secondary transition-all duration-300 fixed z-20 shadow-2xl" style="min-height: 700px; width: 90%; max-width: 1000px; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        <button id="close-calendly" class="absolute top-4 right-4 text-light hover:text-accent bg-dark bg-opacity-70 rounded-full p-2 z-30">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <div id="calendly-loading" class="absolute inset-0 flex items-center justify-center bg-secondary">
+            <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-accent"></div>
+        </div>
+        <div id="calendly-container" class="w-full h-full" style="overflow: hidden; min-height: 700px;"></div>
+    </div>
+
     <!-- Header/Navigation -->
     <header class="sticky top-0 z-50 bg-dark bg-opacity-90 backdrop-blur-sm border-b border-gray-800">
         <nav class="container mx-auto px-4 sm:px-6 py-4">
@@ -709,11 +726,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Load More Button -->
-            <div class="text-center mt-12">
-                <button class="btn-primary">Load More Projects</button>
-            </div>
         </div>
     </section>
 
@@ -725,9 +737,24 @@
                 <p class="text-xl mb-8 opacity-80">
                     Whether you have a specific idea or just want to explore possibilities, we're here to help bring your AI vision to life.
                 </p>
-                <button onclick="document.getElementById('demo-button').click();" class="btn-primary text-lg">
-                    Let's Talk About Your Project
-                </button>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="mailto:szhang1@me.com" class="btn-primary text-lg">
+                        <div class="flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            Write Us an Email
+                        </div>
+                    </a>
+                    <button id="schedule-button" class="btn-primary text-lg">
+                        <div class="flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            Schedule a Call
+                        </div>
+                    </button>
+                </div>
             </div>
         </div>
     </section>
@@ -778,6 +805,117 @@
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
+        
+        // Calendly popup functionality
+        document.getElementById('demo-button').addEventListener('click', function() {
+            openCalendly();
+        });
+        
+        document.getElementById('schedule-button').addEventListener('click', function() {
+            openCalendly();
+        });
+
+        function openCalendly() {
+            const calendlyEmbed = document.getElementById('calendly-embed');
+            const calendlyOverlay = document.getElementById('calendly-overlay');
+            
+            // Use Calendly's popup widget directly instead of our custom container
+            Calendly.initPopupWidget({
+                url: 'https://calendly.com/shaunzhang-bootldr/30min',
+                prefill: {},
+                utm: {}
+            });
+            
+            // No need to manage our custom container since we're using Calendly's popup
+            return;
+            
+            // The code below is no longer used but kept for reference
+            /*
+            // Toggle the visibility of the Calendly embed
+            if (calendlyEmbed.classList.contains('hidden')) {
+                // Center the Calendly embed
+                calendlyEmbed.style.top = '50%';
+                calendlyEmbed.style.left = '50%';
+                calendlyEmbed.style.transform = 'translate(-50%, -50%)';
+                
+                // Show the Calendly embed and overlay
+                calendlyOverlay.classList.remove('hidden');
+                calendlyEmbed.classList.remove('hidden');
+                
+                // Add event listener to the overlay
+                calendlyOverlay.addEventListener('click', closeCalendly);
+                
+                // Add event listener to the close button
+                const closeButton = document.getElementById('close-calendly');
+                closeButton.addEventListener('click', function() {
+                    closeCalendly();
+                });
+                
+                // Only initialize Calendly if it's not already loaded
+                if (!calendlyEmbed.dataset.loaded) {
+                    const loadingIndicator = document.getElementById('calendly-loading');
+                    
+                    // Clear any existing content
+                    while (calendlyEmbed.firstChild) {
+                        if (calendlyEmbed.firstChild.id !== 'calendly-loading' &&
+                            calendlyEmbed.firstChild.id !== 'close-calendly' &&
+                            calendlyEmbed.firstChild.id !== 'calendly-container') {
+                            calendlyEmbed.removeChild(calendlyEmbed.firstChild);
+                        } else if (calendlyEmbed.firstChild.id !== 'calendly-container') {
+                            break;
+                        }
+                    }
+                    
+                    const calendlyContainer = document.getElementById('calendly-container');
+                    
+                    Calendly.initInlineWidget({
+                        url: 'https://calendly.com/shaunzhang-bootldr/30min',
+                        parentElement: calendlyContainer,
+                        prefill: {},
+                        utm: {}
+                    });
+                    
+                    // Hide loading indicator when Calendly is ready
+                    window.addEventListener('message', function calendlyEventHandler(e) {
+                        if (e.data.event && e.data.event.indexOf('calendly') === 0) {
+                            if (e.data.event === 'calendly.event_scheduled' ||
+                                e.data.event === 'calendly.date_and_time_selected' ||
+                                e.data.event === 'calendly.profile_page_viewed') {
+                                loadingIndicator.style.display = 'none';
+                                
+                                // Remove the event listener once Calendly is loaded
+                                window.removeEventListener('message', calendlyEventHandler);
+                            }
+                        }
+                    });
+                    
+                    // Mark as loaded to avoid reinitialization
+                    calendlyEmbed.dataset.loaded = "true";
+                } else {
+                    // If already loaded, hide the loading indicator
+                    const loadingIndicator = document.getElementById('calendly-loading');
+                    loadingIndicator.style.display = 'none';
+                }
+            } else {
+                closeCalendly();
+            }
+            */
+        }
+        
+        // Function to close Calendly interface is no longer needed since Calendly handles its own popup
+        function closeCalendly() {
+            // This function is no longer used but kept for reference
+            /*
+            const calendlyEmbed = document.getElementById('calendly-embed');
+            const calendlyOverlay = document.getElementById('calendly-overlay');
+            
+            calendlyEmbed.classList.add('hidden');
+            calendlyOverlay.classList.add('hidden');
+            
+            // Remove event listener from overlay
+            calendlyOverlay.removeEventListener('click', closeCalendly);
+            */
+        }
         
         // Category filter functionality
         const categoryButtons = document.querySelectorAll('.category-btn');
