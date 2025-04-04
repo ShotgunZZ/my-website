@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://shaunzhang.me/sitemap.xml 
+Sitemap: https://shaunz.net/sitemap.xml 
