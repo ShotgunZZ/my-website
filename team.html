@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XB9NN4HMVV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XB9NN4HMVV');
+</script>
+    <meta charset="UTF-8">
+    <meta name="description" content="Meet the Z.AI team - experienced AI professionals dedicated to transforming businesses through intelligent automation.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z.AI - Our Team</title>
+    <!-- Google Fonts - JetBrains Mono for code-like feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#0D1117',    // GitHub dark theme color
+                        'secondary': '#161B22',  // GitHub secondary dark
+                        'accent': '#58A6FF',     // GitHub blue
+                        'light': '#E6EDF3',      // Light text color
+                        'dark': '#010409',       // Almost black
+                        'comment': '#8B949E',    // Code comment color
+                        'success': '#3FB950',    // Green for success
+                    },
+                    fontFamily: {
+                        'mono': ['JetBrains Mono', 'monospace'],
+                        'sans': ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer components {
+            .btn-primary {
+                @apply bg-accent text-dark font-mono font-medium py-2 sm:py-3 px-4 sm:px-8 rounded-md text-base sm:text-lg transition duration-300 hover:bg-opacity-90 hover:shadow-lg border border-accent whitespace-nowrap;
+            }
+            
+            .nav-link {
+                @apply px-3 sm:px-4 py-2 text-light font-mono hover:text-accent transition duration-300 tracking-tight text-sm sm:text-base;
+            }
+        }
+
+        /* Custom scrollbar for code feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #161B22;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #30363D;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8B949E;
+        }
+    </style>
+</head>
+<body class="font-mono antialiased bg-primary text-light">
+    <!-- Header/Navigation -->
+    <header class="sticky top-0 z-50 bg-dark bg-opacity-90 backdrop-blur-sm border-b border-gray-800">
+        <nav class="container mx-auto px-4 sm:px-6 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="index.html" class="text-light font-bold text-xl sm:text-2xl tracking-tighter">
+                    Z<span class="text-accent">.AI</span>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="services.html" class="nav-link">Services</a>
+                    <a href="portfolios.html" class="nav-link">Portfolios</a>
+                    <a href="social-media.html" class="nav-link">Social Media</a>
+                    <a href="team.html" class="nav-link text-accent">Team</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </div>
+                
+                <!-- Mobile Navigation Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-light hover:text-accent">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="md:hidden hidden mt-4 space-y-2">
+                <a href="index.html" class="block py-2 px-4 text-light hover:bg-secondary rounded">Home</a>
+                <a href="services.html" class="block py-2 px-4 text-light hover:bg-secondary rounded">Services</a>
+                <a href="portfolios.html" class="block py-2 px-4 text-light hover:bg-secondary rounded">Portfolios</a>
+                <a href="social-media.html" class="block py-2 px-4 text-light hover:bg-secondary rounded">Social Media</a>
+                <a href="team.html" class="block py-2 px-4 text-accent hover:bg-secondary rounded">Team</a>
+                <a href="contact.html" class="block py-2 px-4 text-light hover:bg-secondary rounded">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Team Section -->
+    <section class="py-20 bg-secondary border-b border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-8">
+                <div class="text-comment text-sm mb-2">/* Meet our experts */</div>
+                <h2 class="text-3xl md:text-5xl font-bold mb-4 tracking-tight">OUR <span class="text-accent">TEAM</span></h2>
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-12 items-center mt-12">
+                <!-- Profile Image -->
+                <div class="md:w-1/3">
+                    <div class="photo-container">
+                        <!-- Actual profile photo with vignette effect -->
+                        <img src="shaun_zhang_profile.jpg" alt="Shaun Zhang" class="w-full max-w-sm mx-auto rounded-lg">
+                    </div>
+                </div>
+                
+                <!-- Profile Content -->
+                <div class="md:w-2/3">
+                    <h2 class="text-3xl font-bold tracking-tight mb-2"><a href="https://linkedin.com/in/shaunzhangsg" target="_blank" class="hover:text-success transition-all duration-300 transform hover:-translate-y-1 inline-block">Shaun Zhang</a></h2>
+                    <p class="text-accent text-xl mb-6 tracking-tight">AI Solutions Architect & Automation Specialist</p>
+                    
+                    <div class="space-y-6">
+                        <p class="text-lg">
+                            Dynamic professional with extensive experience in AI product development, workflow automation, and program management. Specializes in developing AI-powered solutions, no-code automation systems, and CRM integrations to optimize business operations.
+                        </p>
+                        
+                        <div class="mt-6">
+                            <p class="text-lg font-bold mb-3 text-success">Notable AI Projects:</p>
+                            <p class="text-lg">
+                                Interactive AI Storytelling Game Built From ElevenLabs & A16Z Hackathon<br>
+                                Voice Appointment Setter For Real Estate Agent<br>
+                                AI Customer Chatbot For Nutrition Business<br>
+                                Educational AI Agent Creation YouTube Channel
+                            </p>
+                        </div>
+                        
+                        <p class="text-lg">
+                            Shaun is passionate about leveraging technical proficiency and strategic insights to support innovative AI product teams. His approach focuses on creating solutions that enhance human capabilities while streamlining complex workflows.
+                        </p>
+                        
+                        <div class="pt-6">
+                            <h3 class="text-xl font-bold mb-4 tracking-tight text-success">Areas of Expertise</h3>
+                            <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                <li class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-success" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    AI Agent Development
+                                </li>
+                                <li class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-success" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    Start-ups Marketing
+                                </li>
+                                <li class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-success" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    No-Code Automation (Make.com)
+                                </li>
+                                <li class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-success" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    API Integration & Webhooks
+                                </li>
+                                <li class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-success" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    CRM & Business Tools
+                                </li>
+                                <li class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-success" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    Project Management (PMP)
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="pt-6">
+                            <h3 class="text-xl font-bold mb-4 tracking-tight text-success">Education</h3>
+                            <p class="text-lg">
+                                Yale School of Management<br>
+                                Master in Advanced Management
+                            </p>
+                            <p class="text-lg mt-4">
+                                National University of Singapore<br>
+                                MBA, Strategy & Organization
+                            </p>
+                        </div>
+                        
+                        <!-- Certifications Section -->
+                        <div class="pt-6">
+                            <h3 class="text-xl font-bold mb-4 tracking-tight text-success">Certifications</h3>
+                            <div class="max-w-4xl mx-auto">
+                                <div class="flex flex-wrap justify-center gap-4 items-end">
+                                    <div class="flex flex-col items-center">
+                                        <img src="certification-badges/makeadvanced.png" alt="Make.com Advanced" class="h-24 w-24 hover:scale-110 transition-transform duration-300">
+                                        <span class="text-sm mt-2 text-center">Advanced</span>
+                                    </div>
+                                    <div class="flex flex-col items-center">
+                                        <img src="certification-badges/makeintermediate.png" alt="Make.com Intermediate" class="h-24 w-24 hover:scale-110 transition-transform duration-300">
+                                        <span class="text-sm mt-2 text-center">Intermediate</span>
+                                    </div>
+                                    <div class="flex flex-col items-center">
+                                        <img src="certification-badges/makebasics.png" alt="Make.com Basics" class="h-24 w-24 hover:scale-110 transition-transform duration-300">
+                                        <span class="text-sm mt-2 text-center">Basics</span>
+                                    </div>
+                                    <div class="flex flex-col items-center">
+                                        <img src="certification-badges/makefoundation.png" alt="Make.com Foundation" class="h-24 w-24 hover:scale-110 transition-transform duration-300">
+                                        <span class="text-sm mt-2 text-center">Foundation</span>
+                                    </div>
+                                    <div class="flex flex-col items-center ml-16">
+                                        <img src="certification-badges/pmp.png" alt="PMP Certification" class="h-24 w-24 hover:scale-110 transition-transform duration-300">
+                                        <span class="text-sm mt-2 text-center">PMP®</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="pt-6">
+                            <a href="mailto:szhang1@me.com" class="btn-primary inline-flex items-center">
+                                Contact
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark py-12 border-t border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <a href="index.html" class="text-light font-bold text-xl sm:text-2xl tracking-tighter">
+                    Z<span class="text-accent">.AI</span>
+                </a>
+                <div class="mt-4 text-sm opacity-70">
+                    <span class="text-comment">// Copyright</span> &copy; <span id="current-year">2023</span> Z.AI. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Update copyright year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html> 

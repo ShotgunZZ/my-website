@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XB9NN4HMVV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XB9NN4HMVV');
+</script>
+    <meta charset="UTF-8">
+    <meta name="description" content="Z.AI's cutting-edge AI solutions and services including workflow automation, CRM integration, and custom AI development.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z.AI - Our Services</title>
+    <!-- Google Fonts - JetBrains Mono for code-like feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Calendly Widget -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#0D1117',    // GitHub dark theme color
+                        'secondary': '#161B22',  // GitHub secondary dark
+                        'accent': '#58A6FF',     // GitHub blue
+                        'light': '#E6EDF3',      // Light text color
+                        'dark': '#010409',       // Almost black
+                        'comment': '#8B949E',    // Code comment color
+                        'success': '#3FB950',    // Green for success
+                    },
+                    fontFamily: {
+                        'mono': ['JetBrains Mono', 'monospace'],
+                        'sans': ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer components {
+            .btn-primary {
+                @apply bg-accent text-dark font-mono font-medium py-2 sm:py-3 px-4 sm:px-8 rounded-md text-base sm:text-lg transition duration-300 hover:bg-opacity-90 hover:shadow-lg border border-accent whitespace-nowrap;
+            }
+            
+            .nav-link {
+                @apply px-3 sm:px-4 py-2 text-light font-mono hover:text-accent transition duration-300 tracking-tight text-sm sm:text-base;
+            }
+        }
+
+        /* Custom scrollbar for code feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #161B22;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #30363D;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8B949E;
+        }
+    </style>
+</head>
+<body class="font-mono antialiased bg-primary text-light">
+    <!-- Header/Navigation -->
+    <header class="sticky top-0 z-50 bg-dark bg-opacity-90 backdrop-blur-sm border-b border-gray-800">
+        <nav class="container mx-auto px-4 sm:px-6 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="index.html" class="text-light font-bold text-xl sm:text-2xl tracking-tighter">
+                    Z<span class="text-accent">.AI</span>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="services.html" class="nav-link text-accent">Services</a>
+                    <a href="portfolios.html" class="nav-link">Portfolios</a>
+                    <a href="social-media.html" class="nav-link">Social Media</a>
+                    <a href="team.html" class="nav-link">Team</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </div>
+                
+                <!-- Mobile Navigation Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-light hover:text-accent">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="md:hidden hidden mt-4 space-y-2">
+                <a href="index.html" class="block py-2 px-4 text-light hover:bg-secondary rounded">Home</a>
+                <a href="services.html" class="block py-2 px-4 text-accent hover:bg-secondary rounded">Services</a>
+                <a href="portfolios.html" class="block py-2 px-4 text-light hover:bg-secondary rounded">Portfolios</a>
+                <a href="social-media.html" class="block py-2 px-4 text-light hover:bg-secondary rounded">Social Media</a>
+                <a href="team.html" class="block py-2 px-4 text-light hover:bg-secondary rounded">Team</a>
+                <a href="contact.html" class="block py-2 px-4 text-light hover:bg-secondary rounded">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Services Section -->
+    <section class="py-20 bg-secondary border-b border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="text-comment text-sm mb-2">/* Our core offerings */</div>
+                <h2 class="text-3xl md:text-5xl font-bold mb-4 tracking-tight">OUR <span class="text-accent">SERVICES</span></h2>
+                <p class="text-xl max-w-3xl mx-auto opacity-80">
+                    Z.AI assists you in identifying and integrating cutting-edge AI solutions, guiding you seamlessly from inception to deployment and beyond.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1 - Merged Workflow Automation and CRM AI Integration -->
+                <div class="bg-primary p-8 rounded-md border border-gray-700 transition duration-300 hover:shadow-xl hover:translate-y-[-5px]">
+                    <h3 class="text-2xl font-bold mb-6 tracking-tight text-success">AGENTIC AI SOLUTIONS</h3>
+                    <div class="flex flex-col h-[calc(100%-4rem)] justify-between">
+                        <div class="space-y-6 text-light opacity-80">
+                            <p>Workflow Automation</p>
+                            <p>Intelligent Task Scheduling</p>
+                            <p>CRM AI Integration</p>
+                            <p>Customer Service AI Chatbot</p>
+                            <p>AI Voice Agent</p>
+                        </div>
+                        
+                        <!-- Partnership Banner -->
+                        <div class="mt-6 pt-5 border-t border-gray-700">
+                            <div class="flex flex-col items-center">
+                                <p class="text-sm text-comment mb-3">/* Official Partner */</p>
+                                <!-- Think Technologies Logo -->
+                                <div class="bg-primary px-4 py-3 rounded-md w-full max-w-[240px] flex justify-center">
+                                    <a href="https://www.think-technologies.com/" target="_blank" class="hover:opacity-80 transition-opacity duration-300">
+                                        <img src="public/images/think-tech-logo.png" alt="Think Technologies Partnership" class="h-16 object-contain">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-primary p-8 rounded-md border border-gray-700 transition duration-300 hover:shadow-xl hover:translate-y-[-5px]">
+                    <h3 class="text-2xl font-bold mb-6 tracking-tight text-success">MARKETING SERVICE</h3>
+                    <div class="space-y-3 text-light opacity-80">
+                        <p>ProductHunt Launch Strategy</p>
+                        <p>SEO Optimization</p>
+                        <p>Social Media Marketing</p>
+                        <p>Growth Hacking</p>
+                        
+                        <!-- Partnership Banner -->
+                        <div class="mt-6 pt-5 border-t border-gray-700">
+                            <div class="flex flex-col items-center">
+                                <p class="text-sm text-comment mb-3">/* Official Partner */</p>
+                                <!-- Bootloader Logo -->
+                                <div class="bg-primary px-4 py-3 rounded-md w-full max-w-[240px] flex justify-center">
+                                    <img src="public/images/Bootloader Logo.png" alt="Bootloader Partnership" class="h-16 object-contain">
+                                </div>
+                            </div>
+                            
+                            <!-- Links -->
+                            <div class="mt-5 grid grid-cols-2 gap-3">
+                                <a href="https://www.canva.com/design/DAGYREYXUMw/Tu5BHSbu1ep07xBIC6l1iQ/view?utm_content=DAGYREYXUMw&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h8235d208ea" target="_blank" class="text-accent hover:underline text-center py-2 px-3 bg-dark rounded-md text-sm transition-all hover:bg-accent hover:bg-opacity-10">Pitch Deck</a>
+                                <a href="https://www.canva.com/design/DAGVw5dO0Mw/JEHCgu-gcNYQAhTDR-MQ9Q/view?utm_content=DAGVw5dO0Mw&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h2e91ce661b" target="_blank" class="text-accent hover:underline text-center py-2 px-3 bg-dark rounded-md text-sm transition-all hover:bg-accent hover:bg-opacity-10">Company Intro</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 3 - New AI Customized Solutions -->
+                <div class="bg-primary p-8 rounded-md border border-gray-700 transition duration-300 hover:shadow-xl hover:translate-y-[-5px]">
+                    <h3 class="text-2xl font-bold mb-6 tracking-tight text-success">AI CUSTOMIZED SOLUTIONS</h3>
+                    <div class="flex flex-col h-[calc(100%-4rem)] justify-between">
+                        <div class="space-y-4 text-light opacity-80">
+                            <p>Got a workflow headache? Our AI aspirin is custom-made!</p>
+                            <p>Whether you dream of a Siri that actually "gets you" or a CRM that doesn't make you want to throw your laptop, we're your AI matchmakers.</p>
+                            
+                            <div class="pt-6 mt-4">
+                                <a href="contact.html" class="inline-flex items-center justify-center px-6 py-3 text-base font-medium bg-accent text-dark rounded-md hover:bg-opacity-90 transition duration-300 border border-accent w-full">
+                                    Talk to us!
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark py-12 border-t border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <a href="index.html" class="text-light font-bold text-xl sm:text-2xl tracking-tighter">
+                    Z<span class="text-accent">.AI</span>
+                </a>
+                <div class="mt-4 text-sm opacity-70">
+                    <span class="text-comment">// Copyright</span> &copy; <span id="current-year">2023</span> Z.AI. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Update copyright year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html> 

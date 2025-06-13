@@ -11,9 +11,9 @@
   gtag('config', 'G-XB9NN4HMVV');
 </script>
     <meta charset="UTF-8">
-    <meta name="description" content="Tired of boring workflows? Z.AI simplifies AI integration & streamlines processes to make your business smarter. Get cutting-edge AI solutions. Book a free consultation!">
+    <meta name="description" content="Z.AI - Transforming businesses through intelligent AI automation and workflow solutions. Expert AI consultation and implementation services.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Z.AI - Cutting-Edge AI Solutions</title>
+    <title>Z.AI - AI Automation Solutions</title>
     <!-- Google Fonts - JetBrains Mono for code-like feel -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,83 +53,6 @@
             .nav-link {
                 @apply px-3 sm:px-4 py-2 text-light font-mono hover:text-accent transition duration-300 tracking-tight text-sm sm:text-base;
             }
-
-            .code-block {
-                @apply bg-secondary p-4 rounded-md border border-gray-700 font-mono text-sm overflow-x-auto;
-            }
-
-            /* Code line styling */
-            .code-line {
-                @apply border-l-4 border-transparent pl-2 transition-all duration-200;
-            }
-            
-            .code-line:hover {
-                @apply border-accent;
-            }
-        }
-
-        /* Calendly iframe styling */
-        #calendly-container iframe {
-            width: 100% !important;
-            height: 100% !important;
-            min-height: 700px !important;
-        }
-        
-        /* Video preview styling */
-        .video-container {
-            position: relative;
-            width: 100%;
-            height: 0;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            overflow: hidden;
-            cursor: pointer; /* Add hand cursor on hover */
-        }
-        
-        .video-container img.thumbnail {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: all 0.3s ease;
-        }
-        
-        /* Play button overlay styling */
-        .play-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: rgba(13, 17, 23, 0.7); /* Semi-transparent dark background */
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .video-container:hover .play-overlay {
-            opacity: 1;
-        }
-        
-        .video-container:hover img.thumbnail {
-            transform: scale(1.05);
-        }
-        
-        .play-button {
-            color: #58A6FF; /* Accent color */
-            margin-bottom: 10px;
-            filter: drop-shadow(0 0 8px rgba(88, 166, 255, 0.5));
-        }
-        
-        .play-text {
-            color: white;
-            font-size: 1.1rem;
-            font-weight: 500;
-            letter-spacing: 0.05em;
         }
 
         /* Custom scrollbar for code feel */
@@ -180,12 +103,12 @@
                 
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#" class="nav-link">Home</a>
-                    <a href="#services" class="nav-link">Services</a>
+                    <a href="index.html" class="nav-link text-accent">Home</a>
+                    <a href="services.html" class="nav-link">Services</a>
                     <a href="portfolios.html" class="nav-link">Portfolios</a>
-                    <a href="#social-media" class="nav-link">Social Media</a>
-                    <a href="#team" class="nav-link">Team</a>
-                    <a href="#contact" class="nav-link">Contact</a>
+                    <a href="social-media.html" class="nav-link">Social Media</a>
+                    <a href="team.html" class="nav-link">Team</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
                 </div>
                 
                 <!-- Mobile Navigation Button -->
@@ -200,12 +123,12 @@
             
             <!-- Mobile Navigation Menu -->
             <div id="mobile-menu" class="md:hidden hidden mt-4 space-y-2">
-                <a href="#" class="block py-2 px-4 text-light hover:bg-secondary rounded">Home</a>
-                <a href="#services" class="block py-2 px-4 text-light hover:bg-secondary rounded">Services</a>
+                <a href="index.html" class="block py-2 px-4 text-accent hover:bg-secondary rounded">Home</a>
+                <a href="services.html" class="block py-2 px-4 text-light hover:bg-secondary rounded">Services</a>
                 <a href="portfolios.html" class="block py-2 px-4 text-light hover:bg-secondary rounded">Portfolios</a>
-                <a href="#social-media" class="block py-2 px-4 text-light hover:bg-secondary rounded">Social Media</a>
-                <a href="#team" class="block py-2 px-4 text-light hover:bg-secondary rounded">Team</a>
-                <a href="#contact" class="block py-2 px-4 text-light hover:bg-secondary rounded">Contact</a>
+                <a href="social-media.html" class="block py-2 px-4 text-light hover:bg-secondary rounded">Social Media</a>
+                <a href="team.html" class="block py-2 px-4 text-light hover:bg-secondary rounded">Team</a>
+                <a href="contact.html" class="block py-2 px-4 text-light hover:bg-secondary rounded">Contact</a>
             </div>
         </nav>
     </header>
@@ -253,394 +176,21 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-20 bg-secondary border-b border-gray-800">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <div class="text-comment text-sm mb-2">/* Our core offerings */</div>
-                <h2 class="text-3xl md:text-5xl font-bold mb-4 tracking-tight">OUR <span class="text-accent">SERVICES</span></h2>
-                <p class="text-xl max-w-3xl mx-auto opacity-80">
-                    Z.AI assists you in identifying and integrating cutting-edge AI solutions, guiding you seamlessly from inception to deployment and beyond.
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Service 1 - Merged Workflow Automation and CRM AI Integration -->
-                <div class="bg-primary p-8 rounded-md border border-gray-700 transition duration-300 hover:shadow-xl hover:translate-y-[-5px]">
-                    <h3 class="text-2xl font-bold mb-6 tracking-tight text-success">AGENTIC AI SOLUTIONS</h3>
-                    <div class="flex flex-col h-[calc(100%-4rem)] justify-between">
-                        <div class="space-y-6 text-light opacity-80">
-                            <p>Workflow Automation</p>
-                            <p>Intelligent Task Scheduling</p>
-                            <p>CRM AI Integration</p>
-                            <p>Customer Service AI Chatbot</p>
-                            <p>AI Voice Agent</p>
-                        </div>
-                        
-                        <!-- Partnership Banner -->
-                        <div class="mt-6 pt-5 border-t border-gray-700">
-                            <div class="flex flex-col items-center">
-                                <p class="text-sm text-comment mb-3">/* Official Partner */</p>
-                                <!-- Think Technologies Logo -->
-                                <div class="bg-primary px-4 py-3 rounded-md w-full max-w-[240px] flex justify-center">
-                                    <img src="public/images/think-tech-logo.png" alt="Think Technologies Partnership" class="h-16 object-contain">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Service 2 -->
-                <div class="bg-primary p-8 rounded-md border border-gray-700 transition duration-300 hover:shadow-xl hover:translate-y-[-5px]">
-                    <h3 class="text-2xl font-bold mb-6 tracking-tight text-success">MARKETING SERVICE</h3>
-                    <div class="space-y-3 text-light opacity-80">
-                        <p>ProductHunt Launch Strategy</p>
-                        <p>SEO Optimization</p>
-                        <p>Social Media Marketing</p>
-                        <p>Growth Hacking</p>
-                        
-                        <!-- Partnership Banner -->
-                        <div class="mt-6 pt-5 border-t border-gray-700">
-                            <div class="flex flex-col items-center">
-                                <p class="text-sm text-comment mb-3">/* Official Partner */</p>
-                                <!-- Bootloader Logo -->
-                                <div class="bg-primary px-4 py-3 rounded-md w-full max-w-[240px] flex justify-center">
-                                    <img src="public/images/Bootloader Logo.png" alt="Bootloader Partnership" class="h-16 object-contain">
-                                </div>
-                            </div>
-                            
-                            <!-- Links -->
-                            <div class="mt-5 grid grid-cols-2 gap-3">
-                                <a href="https://www.canva.com/design/DAGYREYXUMw/Tu5BHSbu1ep07xBIC6l1iQ/view?utm_content=DAGYREYXUMw&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h8235d208ea" target="_blank" class="text-accent hover:underline text-center py-2 px-3 bg-dark rounded-md text-sm transition-all hover:bg-accent hover:bg-opacity-10">Pitch Deck</a>
-                                <a href="https://www.canva.com/design/DAGVw5dO0Mw/JEHCgu-gcNYQAhTDR-MQ9Q/view?utm_content=DAGVw5dO0Mw&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h2e91ce661b" target="_blank" class="text-accent hover:underline text-center py-2 px-3 bg-dark rounded-md text-sm transition-all hover:bg-accent hover:bg-opacity-10">Company Intro</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Service 3 - New AI Customized Solutions -->
-                <div class="bg-primary p-8 rounded-md border border-gray-700 transition duration-300 hover:shadow-xl hover:translate-y-[-5px]">
-                    <h3 class="text-2xl font-bold mb-6 tracking-tight text-success">AI CUSTOMIZED SOLUTIONS</h3>
-                    <div class="flex flex-col h-[calc(100%-4rem)] justify-between">
-                        <div class="space-y-4 text-light opacity-80">
-                            <p>Got a workflow headache? Our AI aspirin is custom-made!</p>
-                            <p>Whether you dream of a Siri that actually "gets you" or a CRM that doesn't make you want to throw your laptop, we're your AI matchmakers.</p>
-                            
-                            <div class="pt-6 mt-4">
-                                <button onclick="document.getElementById('demo-button').click();" class="inline-flex items-center justify-center px-6 py-3 text-base font-medium bg-accent text-dark rounded-md hover:bg-opacity-90 transition duration-300 border border-accent w-full">
-                                    Talk to us!
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Social Media Section -->
-    <section id="social-media" class="py-20 bg-primary">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <div class="text-comment text-sm mb-2">/* Watch our channel */</div>
-                <h2 class="text-3xl md:text-5xl font-bold mb-4 tracking-tight"><span class="text-light">SOCIAL</span> <span class="text-accent">MEDIA</span></h2>
-                <p class="text-xl max-w-3xl mx-auto opacity-80 mb-8">
-                    Check out our latest videos showcasing AI innovations and tutorials
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Video 1 -->
-                <div class="bg-secondary p-6 rounded-md border border-gray-700 transition duration-300 hover:shadow-xl">
-                    <a href="https://youtu.be/Rq0-dfz0NjA?si=ppiFMt_KCcWTae_Y" target="_blank" class="block">
-                        <div class="mb-6 rounded-md border border-gray-700 overflow-hidden">
-                            <div class="video-container">
-                                <img src="https://img.youtube.com/vi/Rq0-dfz0NjA/maxresdefault.jpg" alt="YouTube Video Thumbnail" class="thumbnail">
-                                <!-- Play button overlay -->
-                                <div class="play-overlay">
-                                    <div class="play-button">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-16 h-16">
-                                            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm14.024-.983a1.125 1.125 0 010 1.966l-5.603 3.113A1.125 1.125 0 019 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113z" clip-rule="evenodd" />
-                                        </svg>
-                                    </div>
-                                    <div class="play-text">Click to play</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-sm text-comment mb-2">// AI Solutions</div>
-                        <h3 class="text-xl font-bold mb-4 tracking-tight hover:text-accent transition duration-300">Advanced AI Integration Techniques</h3>
-                    </a>
-                </div>
-                
-                <!-- Video 2 -->
-                <div class="bg-secondary p-6 rounded-md border border-gray-700 transition duration-300 hover:shadow-xl">
-                    <a href="https://youtu.be/eJ9uctdHLyg?si=ytrJ9Wtuwma5JpKx" target="_blank" class="block">
-                        <div class="mb-6 rounded-md border border-gray-700 overflow-hidden">
-                            <div class="video-container">
-                                <img src="https://img.youtube.com/vi/eJ9uctdHLyg/maxresdefault.jpg" alt="YouTube Video Thumbnail" class="thumbnail">
-                                <!-- Play button overlay -->
-                                <div class="play-overlay">
-                                    <div class="play-button">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-16 h-16">
-                                            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm14.024-.983a1.125 1.125 0 010 1.966l-5.603 3.113A1.125 1.125 0 019 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113z" clip-rule="evenodd" />
-                                        </svg>
-                                    </div>
-                                    <div class="play-text">Click to play</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-sm text-comment mb-2">// Automation</div>
-                        <h3 class="text-xl font-bold mb-4 tracking-tight hover:text-accent transition duration-300">Workflow Automation Masterclass</h3>
-                    </a>
-                </div>
-                
-                <!-- Video 3 -->
-                <div class="bg-secondary p-6 rounded-md border border-gray-700 transition duration-300 hover:shadow-xl">
-                    <a href="https://youtu.be/EDE1C9T48sY?si=YCQZ6d5eTofWfyXU" target="_blank" class="block">
-                        <div class="mb-6 rounded-md border border-gray-700 overflow-hidden">
-                            <div class="video-container">
-                                <img src="https://img.youtube.com/vi/EDE1C9T48sY/maxresdefault.jpg" alt="YouTube Video Thumbnail" class="thumbnail">
-                                <!-- Play button overlay -->
-                                <div class="play-overlay">
-                                    <div class="play-button">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-16 h-16">
-                                            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm14.024-.983a1.125 1.125 0 010 1.966l-5.603 3.113A1.125 1.125 0 019 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113z" clip-rule="evenodd" />
-                                        </svg>
-                                    </div>
-                                    <div class="play-text">Click to play</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-sm text-comment mb-2">// AI Development</div>
-                        <h3 class="text-xl font-bold mb-4 tracking-tight hover:text-accent transition duration-300">Building Smart AI Agents from Scratch</h3>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="text-center mt-12">
-                <a href="https://www.youtube.com/@ShaunLearnsAI" target="_blank" class="btn-primary inline-block">
-                    Subscribe to Our Channel
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section id="team" class="py-20 bg-secondary border-b border-gray-800">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-8">
-                <div class="text-comment text-sm mb-2">/* Meet our experts */</div>
-                <h2 class="text-3xl md:text-5xl font-bold mb-4 tracking-tight">OUR <span class="text-accent">TEAM</span></h2>
-            </div>
-            
-            <div class="flex flex-col md:flex-row gap-12 items-center mt-12">
-                <!-- Profile Image -->
-                <div class="md:w-1/3">
-                    <div class="photo-container">
-                        <!-- Actual profile photo with vignette effect -->
-                        <img src="shaun_zhang_profile.jpg" alt="Shaun Zhang">
-                    </div>
-                </div>
-                
-                <!-- Profile Content -->
-                <div class="md:w-2/3">
-                    <h2 class="text-3xl font-bold tracking-tight mb-2"><a href="https://linkedin.com/in/shaunzhangsg" target="_blank" class="hover:text-success transition-all duration-300 transform hover:-translate-y-1 inline-block">Shaun Zhang</a></h2>
-                    <p class="text-accent text-xl mb-6 tracking-tight">AI Solutions Architect & Automation Specialist</p>
-                    
-                    <div class="space-y-6">
-                        <p class="text-lg">
-                            Dynamic professional with extensive experience in AI product development, workflow automation, and program management. Specializes in developing AI-powered solutions, no-code automation systems, and CRM integrations to optimize business operations.
-                        </p>
-                        
-                        <div class="mt-6">
-                            <p class="text-lg font-bold mb-3 text-success">Notable AI Projects:</p>
-                            <p class="text-lg">
-                                Interactive AI Storytelling Game Built From ElevenLabs & A16Z Hackathon<br>
-                                Voice Appointment Setter For Real Estate Agent<br>
-                                AI Customer Chatbot For Nutrition Business<br>
-                                Educational AI Agent Creation YouTube Channel
-                            </p>
-                        </div>
-                        
-                        <p class="text-lg">
-                            Shaun is passionate about leveraging technical proficiency and strategic insights to support innovative AI product teams. His approach focuses on creating solutions that enhance human capabilities while streamlining complex workflows.
-                        </p>
-                        
-                        <div class="pt-6">
-                            <h3 class="text-xl font-bold mb-4 tracking-tight text-success">Areas of Expertise</h3>
-                            <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                <li class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-success" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                                    </svg>
-                                    AI Agent Development
-                                </li>
-                                <li class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-success" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                                    </svg>
-                                    Start-ups Marketing
-                                </li>
-                                <li class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-success" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                                    </svg>
-                                    No-Code Automation (Make.com)
-                                </li>
-                                <li class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-success" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                                    </svg>
-                                    API Integration & Webhooks
-                                </li>
-                                <li class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-success" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                                    </svg>
-                                    CRM & Business Tools
-                                </li>
-                                <li class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-success" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                                    </svg>
-                                    Project Management (PMP)
-                                </li>
-                            </ul>
-                        </div>
-                        
-                        <div class="pt-6">
-                            <h3 class="text-xl font-bold mb-4 tracking-tight text-success">Education</h3>
-                            <p class="text-lg">
-                                Yale School of Management<br>
-                                Master in Advanced Management
-                            </p>
-                            <p class="text-lg mt-4">
-                                National University of Singapore<br>
-                                MBA, Strategy & Organization
-                            </p>
-                        </div>
-                        
-                        <!-- Certifications Section -->
-                        <div class="pt-6">
-                            <h3 class="text-xl font-bold mb-4 tracking-tight text-success">Certifications</h3>
-                            <div class="max-w-4xl mx-auto">
-                                <div class="flex flex-wrap justify-center gap-4 items-end">
-                                    <div class="flex flex-col items-center">
-                                        <img src="certification-badges/makeadvanced.png" alt="Make.com Advanced" class="h-24 w-24 hover:scale-110 transition-transform duration-300">
-                                        <span class="text-sm mt-2 text-center">Advanced</span>
-                                    </div>
-                                    <div class="flex flex-col items-center">
-                                        <img src="certification-badges/makeintermediate.png" alt="Make.com Intermediate" class="h-24 w-24 hover:scale-110 transition-transform duration-300">
-                                        <span class="text-sm mt-2 text-center">Intermediate</span>
-                                    </div>
-                                    <div class="flex flex-col items-center">
-                                        <img src="certification-badges/makebasics.png" alt="Make.com Basics" class="h-24 w-24 hover:scale-110 transition-transform duration-300">
-                                        <span class="text-sm mt-2 text-center">Basics</span>
-                                    </div>
-                                    <div class="flex flex-col items-center">
-                                        <img src="certification-badges/makefoundation.png" alt="Make.com Foundation" class="h-24 w-24 hover:scale-110 transition-transform duration-300">
-                                        <span class="text-sm mt-2 text-center">Foundation</span>
-                                    </div>
-                                    <div class="flex flex-col items-center ml-16">
-                                        <img src="certification-badges/pmp.png" alt="PMP Certification" class="h-24 w-24 hover:scale-110 transition-transform duration-300">
-                                        <span class="text-sm mt-2 text-center">PMP®</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="pt-6">
-                            <a href="mailto:szhang1@me.com" class="btn-primary inline-flex items-center">
-                                Contact
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
-                                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
-    <footer id="contact" class="bg-dark py-12 border-t border-gray-800">
+    <footer class="bg-dark py-12 border-t border-gray-800">
         <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-8 mb-8">
-                <!-- Contact Info -->
-                <div>
-                    <h3 class="text-xl font-bold mb-4 tracking-tight">ADDRESS</h3>
-                    <p class="mb-4 opacity-80 font-mono">Detroit, Michigan, USA</p>
-                    
-                    <h3 class="text-xl font-bold mb-4 mt-8 tracking-tight">CONTACT</h3>
-                    <p class="mb-4 opacity-80 font-mono">szhang1@me.com</p>
-                </div>
-                
-                <!-- Newsletter -->
-                <div>
-                    <h3 class="text-xl font-bold mb-4 tracking-tight">SUBSCRIBE</h3>
-                    
-                    <!-- Social Media Icons -->
-                    <div class="mb-6">
-                        <div class="flex justify-start space-x-4">
-                            <!-- YouTube -->
-                            <a href="https://www.youtube.com/@ShaunLearnsAI" target="_blank" class="group">
-                                <div class="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 hover:bg-gray-700">
-                                    <svg class="w-6 h-6 text-gray-400 group-hover:text-accent transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                                    </svg>
-                                </div>
-                            </a>
-                            
-                            <!-- LinkedIn -->
-                            <a href="https://www.linkedin.com/in/shaunzhangsg/" target="_blank" class="group">
-                                <div class="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 hover:bg-gray-700">
-                                    <svg class="w-5 h-5 text-gray-400 group-hover:text-accent transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                                    </svg>
-                                </div>
-                            </a>
-                            
-                            <!-- Xiaohongshu -->
-                            <a href="https://www.xiaohongshu.com/user/profile/6134eb9e0000000002023b45" target="_blank" class="group">
-                                <div class="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 hover:bg-gray-700">
-                                    <svg class="w-5 h-5 text-gray-400 group-hover:text-accent transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                                    </svg>
-                                </div>
-                            </a>
-                            
-                            <!-- Gumroad -->
-                            <a href="https://zhangster14.gumroad.com/" target="_blank" class="group">
-                                <div class="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 hover:bg-gray-700">
-                                    <svg class="w-5 h-5 text-gray-400 group-hover:text-accent transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.568 14.432c0 1.776-1.44 3.216-3.216 3.216H9.648c-1.776 0-3.216-1.44-3.216-3.216V9.568c0-1.776 1.44-3.216 3.216-3.216h4.704c1.776 0 3.216 1.44 3.216 3.216v4.864z"/>
-                                    </svg>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <p class="mb-4 opacity-80">Subscribe to our newsletter for the latest AI insights and updates.</p>
-                    <form id="newsletter-form" class="flex flex-col sm:flex-row gap-2">
-                        <input type="email" id="subscriber-email" name="email" placeholder="your.email@domain.com" class="px-4 py-2 sm:py-3 rounded-md focus:outline-none bg-secondary text-light flex-1 border border-gray-700 font-mono text-sm sm:text-base" required />
-                        <button type="submit" class="bg-accent hover:bg-opacity-80 transition duration-300 px-4 sm:px-6 py-2 sm:py-3 rounded-md font-medium w-full sm:w-auto">Submit</button>
-                    </form>
-                    <div id="subscription-message" class="mt-4 text-success hidden"></div>
-                </div>
-            </div>
-            
-            <!-- Social Media & Copyright -->
-            <div class="pt-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center">
-                <div class="text-sm opacity-70">
+            <div class="text-center">
+                <a href="index.html" class="text-light font-bold text-xl sm:text-2xl tracking-tighter">
+                    Z<span class="text-accent">.AI</span>
+                </a>
+                <div class="mt-4 text-sm opacity-70">
                     <span class="text-comment">// Copyright</span> &copy; <span id="current-year">2023</span> Z.AI. All rights reserved.
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript for Mobile Menu Toggle -->
+    <!-- JavaScript -->
     <script>
         // Update copyright year
         document.getElementById('current-year').textContent = new Date().getFullYear();
@@ -653,204 +203,42 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Create typing effect animation
-        const addTypingEffect = () => {
-            const elements = document.querySelectorAll('.typing-effect');
-            elements.forEach(element => {
-                // Remove and re-add class to restart animation if needed
-                // but without the cursor blinking effect
-                element.classList.remove('typing-effect');
-                void element.offsetWidth; // Trigger reflow
-                element.classList.add('typing-effect');
-            });
-        };
-
-        // Calendly popup functionality
+        // Calendly integration
         document.getElementById('demo-button').addEventListener('click', function() {
-            const calendlyEmbed = document.getElementById('calendly-embed');
-            const calendlyOverlay = document.getElementById('calendly-overlay');
-            const button = this;
-            const originalText = button.textContent;
+            const overlay = document.getElementById('calendly-overlay');
+            const embed = document.getElementById('calendly-embed');
+            const container = document.getElementById('calendly-container');
+            const loading = document.getElementById('calendly-loading');
             
-            // Toggle the visibility of the Calendly embed
-            if (calendlyEmbed.classList.contains('hidden')) {
-                // Show loading state
-                button.textContent = "loading calendar...";
-                button.disabled = true;
-                
-                // Don't need to position the embed anymore as we're using fixed positioning
-                // with auto margins for centering
-                
-                // Show overlay and calendar
-                calendlyOverlay.classList.remove('hidden');
-                calendlyEmbed.classList.remove('hidden');
-                
-                // Add click event to close when clicking overlay
-                calendlyOverlay.addEventListener('click', closeCalendly);
-                
-                // Add click event to close button
-                const closeButton = document.getElementById('close-calendly');
-                if (closeButton) {
-                    closeButton.addEventListener('click', function(e) {
-                        e.stopPropagation(); // Prevent event bubbling
-                        closeCalendly();
-                    });
-                }
-                
-                // Only initialize Calendly if it's not already loaded
-                if (!calendlyEmbed.dataset.loaded) {
-                    const loadingIndicator = document.getElementById('calendly-loading');
-                    
-                    // Clear any existing content to ensure proper initialization
-                    while (calendlyEmbed.firstChild) {
-                        if (calendlyEmbed.firstChild.id !== 'calendly-loading' && 
-                            calendlyEmbed.firstChild.id !== 'close-calendly' &&
-                            calendlyEmbed.firstChild.id !== 'calendly-container') {
-                            calendlyEmbed.removeChild(calendlyEmbed.firstChild);
-                        } else if (calendlyEmbed.firstChild.id !== 'calendly-container') {
-                            break;
-                        }
-                    }
-                    
-                    const calendlyContainer = document.getElementById('calendly-container');
-                    
-                    Calendly.initPopupWidget({
-                        url: 'https://calendly.com/shaunzhang/30mins',
-                        prefill: {},
-                        utm: {}
-                    });
-                    
-                    // Hide loading indicator when Calendly is ready
-                    window.addEventListener('message', function calendlyEventHandler(e) {
-                        if (e.data.event && e.data.event.indexOf('calendly') === 0) {
-                            if (e.data.event === 'calendly.event_scheduled' || 
-                                e.data.event === 'calendly.date_and_time_selected' || 
-                                e.data.event === 'calendly.profile_page_viewed') {
-                                if (loadingIndicator) loadingIndicator.style.display = 'none';
-                            }
-                        }
-                    });
-                    
-                    // Create a timeout to ensure button is restored and loading indicator removed
-                    setTimeout(() => {
-                        button.textContent = "hide calendar";
-                        button.disabled = false;
-                        if (loadingIndicator) loadingIndicator.style.display = 'none';
-                    }, 2500);
-                    
-                    // Store event handler reference for cleanup
-                    calendlyEmbed.dataset.loaded = "true";
-                } else {
-                    // If already loaded, just hide the loading indicator
-                    const loadingIndicator = document.getElementById('calendly-loading');
-                    if (loadingIndicator) loadingIndicator.style.display = 'none';
-                    
-                    button.textContent = "hide calendar";
-                    button.disabled = false;
-                }
-            } else {
-                closeCalendly();
-            }
+            overlay.classList.remove('hidden');
+            embed.classList.remove('hidden');
+            loading.classList.remove('hidden');
             
-            // Function to close Calendly interface
-            function closeCalendly() {
-                calendlyEmbed.classList.add('hidden');
-                calendlyOverlay.classList.add('hidden');
-                button.textContent = "book a demo";
-                
-                // Remove event listener
-                calendlyOverlay.removeEventListener('click', closeCalendly);
-            }
-        });
-
-        // Newsletter subscription handling
-        document.getElementById('newsletter-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            const emailInput = document.getElementById('subscriber-email');
-            const messageDiv = document.getElementById('subscription-message');
-            const email = emailInput.value.trim();
-            
-            // Basic email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                messageDiv.innerHTML = '<p class="text-red-500">Please enter a valid email address.</p>';
-                messageDiv.classList.remove('hidden'); // Make message visible
-                return;
-            }
-            
-            // Show loading state
-            const submitButton = document.querySelector('#newsletter-form button[type="submit"]');
-            const originalButtonText = submitButton.textContent;
-            submitButton.textContent = 'Submitting...';
-            submitButton.disabled = true;
-            
-            // Clear any previous messages
-            messageDiv.innerHTML = '';
-            messageDiv.classList.add('hidden');
-            
-            // Set a timeout for fallback handling
-            let fetchTimeout = setTimeout(() => {
-                messageDiv.innerHTML = '<p class="text-green-500">Thank you for subscribing! Check your inbox soon.</p>';
-                messageDiv.classList.remove('hidden');
-                submitButton.textContent = originalButtonText;
-                submitButton.disabled = false;
-                emailInput.value = '';
-                localStorage.setItem('subscribed', 'true');
-                localStorage.setItem('subscriberEmail', email);
-            }, 5000); // Fallback after 5 seconds
-            
-            // Normally, you'd send this data to a server
-            // This is just a simulation using JSON
-            const data = {
-                email: email,
-                timestamp: new Date().toISOString()
-            };
-            
-            // Fix request to Google Apps Script web app
-            fetch('https://script.google.com/macros/s/AKfycby_1o9xZN4lcdAkMquPm65NbdySvsdo3Mc6OcB1fOBU1Yv8iVGKd5Vj0N1KZGbUNdbnOw/exec', {
-                method: 'POST',
-                mode: 'no-cors', // Required for Google Apps Script
-                body: new URLSearchParams({
-                    'email': email,
-                    'timestamp': new Date().toISOString()
-                }),
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                }
-            })
-            .then(response => {
-                // Since no-cors doesn't return readable response, we assume success
-                clearTimeout(fetchTimeout); // Clear the fallback timeout
-                messageDiv.innerHTML = '<p class="text-green-500">Thank you for subscribing! Check your inbox soon.</p>';
-                messageDiv.classList.remove('hidden'); // Make success message visible
-                emailInput.value = '';
-                
-                // Store in localStorage to remember this subscriber
-                localStorage.setItem('subscribed', 'true');
-                localStorage.setItem('subscriberEmail', email);
-            })
-            .catch(error => {
-                clearTimeout(fetchTimeout); // Clear the fallback timeout
-                console.error('Error:', error);
-                messageDiv.innerHTML = '<p class="text-red-500">There was an error. Please try again later.</p>';
-                messageDiv.classList.remove('hidden'); // Make error message visible
-            })
-            .finally(() => {
-                // Restore button state
-                submitButton.textContent = originalButtonText;
-                submitButton.disabled = false;
+            // Load Calendly
+            Calendly.initInlineWidget({
+                url: 'https://calendly.com/szhang1me/30mins',
+                parentElement: container,
+                prefill: {},
+                utm: {}
             });
-        });
-        
-        // Initialize the video previews on hover functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            // The video preview hover functionality is now handled by CSS
-            // No JavaScript needed for the simple play button overlay
+            
+            // Hide loading after a short delay
+            setTimeout(() => {
+                loading.classList.add('hidden');
+            }, 2000);
         });
 
-        // Document ready function
-        document.addEventListener('DOMContentLoaded', addTypingEffect);
+        // Close Calendly modal
+        document.getElementById('close-calendly').addEventListener('click', function() {
+            document.getElementById('calendly-overlay').classList.add('hidden');
+            document.getElementById('calendly-embed').classList.add('hidden');
+        });
+
+        // Close on overlay click
+        document.getElementById('calendly-overlay').addEventListener('click', function() {
+            document.getElementById('calendly-overlay').classList.add('hidden');
+            document.getElementById('calendly-embed').classList.add('hidden');
+        });
     </script>
 </body>
 </html> 
